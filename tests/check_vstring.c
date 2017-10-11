@@ -2,12 +2,12 @@
  * File:   check_vstring.c
  * Author: jcr
  *
- * Created on 11 October, 2017
+ * Created on 11 Octoberber, 2017
  */
  /*
  * Copyright (C) 2017 Juan Carlos Rey <carlos.caronte@gmail.com>
  *
- * This file is part of vString.
+ * This file is part of vString
  *
  * vString is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -20,7 +20,7 @@
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with Vector.  If not, see <http://www.gnu.org/licenses/>.
+ * along with vString.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 
