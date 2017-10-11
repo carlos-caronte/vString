@@ -135,14 +135,14 @@ array_vstring_t vstring_Split(vstring_t *s, int *len);
  *                                  Modifiers Methods
  *
  * *************************************************************/
-
+s_stat vstring_Capacity_edit(vstring_t *s, int capacity);
 void vstring_Clear(vstring_t *s) ;
 s_stat vstring_From(vstring_t *s, const char *str);
 s_stat vstring_From_at(vstring_t *s, const char *str, int position);
 void vstring_From_file(vstring_t *s, const char *filename);
 s_stat vstring_Clear_ifPattern(vstring_t *s, const char *pattern);
 s_stat vstring_Truncate(vstring_t *s, int position);
-
+void vstring_Unsafe(vstring_t *s);
 
 /***************************************************************
  *

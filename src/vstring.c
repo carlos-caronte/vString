@@ -512,6 +512,26 @@ array_vstring_t  vstring_Split(vstring_t *s, int * len) {
  *
  * *************************************************************/
 
+s_stat vstring_Capacity_edit(vstring_t *s, int capacity) {
+
+        if (s->safe == S_UNSAFE) {
+            int max_cty = vstring_Max_capacity(s);
+            s_assert((capacity < max_cty),
+                                        S_ERR_MAX_CAPACITY);
+            s->capacity = capacity;
+            s->data = realloc(s->data, s->capacity * s->ele_size);
+            // If memory error, exit,,,
+            s_assert(s->data, S_ERR_ALLOCATE_MEMORY);
+        } else
+                return S_ERR_UNSAFE_CAPACITY;
+
+        if (s->len > s->capacity)
+            s->len = s->capacity;
+
+        return S_OK;
+
+}
+
 /**
  * @brief
  * @param s
@@ -669,6 +689,9 @@ s_stat vstring_Truncate(vstring_t *s, int position) {
 }
 
 
+void vstring_Unsafe(vstring_t *s) {
+    s->safe = S_UNSAFE;
+}
 
 
 /*******************************************************************

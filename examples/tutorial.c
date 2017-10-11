@@ -31,15 +31,22 @@
 
 int main() {
 
-    // We create the string.
+    // We create the vstring object and append its data with one string.
     vstring_t *s =
             vstring_with_Capacity("Hello world! and welcome torticolis", 50);
 
+    // This is the access method to the data
     printf("The string is: %s\n", vstring_Data(s));
+
+    // This is the access method to the length of the stored string
     printf("its length is: %d\n", vstring_Len(s));
+
+    // This is the maximum capacity of storage
     printf("its capacity is: %d\n", vstring_Capacity(s));
 
     // now we are asking for a position. In this case the last position
+    // We can use negative number to access the position character in the
+    // vstring object data
     char p;
     if(vstring_At(s, &p, -1) == S_OK)
         printf("At -1: %c\n", p);
@@ -64,10 +71,14 @@ int main() {
     vstring_t *u = vstring_with_Capacity("Hello world!", 50);
     vstring_t *y = vstring_with_Capacity("Hello world!", 50);
     printf("%s and %s are the same? %s\n", vstring_Data(u),
-                            vstring_Data(y), vstring_isEquals(u, y)?"True":"False");
+                            vstring_Data(y),
+                            vstring_isEquals(u, y)?"True":"False");
+
+    // We insert a string in the vstring object data, at position 6
     vstring_From_at(y, "Ana", 6);
     printf("%s and %s are the same? %s\n", vstring_Data(u),
-                            vstring_Data(y), vstring_isEquals(u, y)?"True":"False");
+                            vstring_Data(y),
+                            vstring_isEquals(u, y)?"True":"False");
 
     vstring_Destroy(u);
     vstring_Destroy(y);

@@ -29,15 +29,14 @@
 #include<check.h>
 #include"../src/vstring.h"
 
-#define CAPACITY 1000
-#define RANDOM 1300000
-#define N 5000
+#define CAPACITY 1000           // Number of charcters in vString object
+#define N 5000                      //  Maximum number of  strings created
 
 
 START_TEST(vstring)
 {
 
-        int n = random() % N;
+        int n = random() % N;   // 'n' is the number of strings created
 
         char **a = calloc(n, sizeof (char *));  /* n pointers to char *  */
         int i;
@@ -46,36 +45,49 @@ START_TEST(vstring)
                 a[i] = calloc(n1 + 1, sizeof (char));
                 int j;
                 for (j = 0; j < n1; j++) {
-                        a[i][j] = random() % 93 + 32;
-                }
-                a[i][n1] = 0;
+                        a[i][j] = random() % 93 + 32; // All characters greater
+                }                                                      // than 32 (in ASCII) but
+                a[i][n1] = 0;                                    // lesser than 124
         }
         s_stat status;
         char value;
         int x = 0, k = 0;
+
+        // We use the constructor New, to create a vstring object
         vstring_t *s = vstring_New(CAPACITY);
-        s->safe = S_UNSAFE;
+
+        // By default a vstring object is S_SAFE, that is, it do not allow
+        // to increase its capacity
+        vstring_Unsafe(s);
 
         for (i = 0; i < n; i++) {
 
+                // We append the object copying the string in a([i])
                 status = vstring_From (s, a[i]);
 
+                // The library gives guarantees of secure access to the object
                 ck_assert(status == S_OK);
+
+                // We copy the first character in the variable 'value' and then
+                // we compare it with the first character in the array
                 vstring_Begin(s, &value);
                 ck_assert(!strncmp(&value, &a[i][0], 1));
 
                 k = strlen(a[i]);
 
+                // Now we copy the last character and we compare it again
                 vstring_End(s, &value);
                 ck_assert(!strncmp(&value, &a[i][k-1], 1));
 
+                // We ask for to the object ist length
                 x = vstring_Len(s);
                 ck_assert_int_eq(x, k);
 
+                // We remove all the data in the object.
                 vstring_Clear(s);
-                s->capacity = CAPACITY;
 
-
+                // Update the capacity of the object
+                vstring_Capacity_edit(s, CAPACITY);
         }
 
         for (i = 0; i < n; i++) {
@@ -83,6 +95,7 @@ START_TEST(vstring)
         }
         free(a);
 
+        // We call the Destructor to managent of memory
         vstring_Destroy(s);
 }
 
