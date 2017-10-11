@@ -1,0 +1,78 @@
+# http://www.gnu.org/software/automake
+
+Makefile.in
+Makefile.am
+
+# http://www.gnu.org/software/autoconf
+
+aclocal.m4
+config.h.in
+configure
+configure.ac
+
+
+configure.scan
+depcomp
+install-sh
+missing
+stamp-h1
+
+# http://www.gnu.org/software/m4/
+
+m4/*
+
+#geany
+Vector.geany
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf

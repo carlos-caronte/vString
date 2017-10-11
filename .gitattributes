@@ -1,0 +1,4 @@
+html/* linguist-documentation
+*.rb linguist-language=C
+build-aux/* linguist-vendored
+m4/* linguist-vendored
