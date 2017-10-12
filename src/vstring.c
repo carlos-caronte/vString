@@ -701,11 +701,6 @@ s_stat vstring_From_at(vstring_t *s, const char *str, int position)
     }
 }
 
- * @brief          Returns the strings
- *
- * @param s              A pointer to vstring_t objet
- * @param result       vstring object pointer to return the result
- */
 
 /**
  * @brief           Remove the data in the object, if matches the pattern.
