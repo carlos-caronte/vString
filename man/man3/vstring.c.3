@@ -1,0 +1,692 @@
+.TH "src/vstring.c" 3 "Thu Oct 12 2017" "Version 0.1" "vString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/vstring.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <fnmatch\&.h>\fP
+.br
+\fC#include 'vstring\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvstring_t\fP * \fBvstring_New\fP (int capacity)"
+.br
+.RI "Constructor\&. The data array is empty\&. "
+.ti -1c
+.RI "\fBvstring_t\fP * \fBvstring_with_Capacity\fP (char *str, int capacity)"
+.br
+.RI "Constructor\&. We append the data array with 'str'\&. "
+.ti -1c
+.RI "void \fBvstring_Destroy\fP (\fBvstring_t\fP *s)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBvstring_Destroy_Array\fP (\fBarray_vstring_t\fP s, int len)"
+.br
+.RI "Array destructor\&. "
+.ti -1c
+.RI "int \fBvstring_Capacity\fP (const \fBvstring_t\fP *s)"
+.br
+.RI "Returns the capacity of the specified object\&. The capacity is the maximum number of characters a object can hold\&. Capacity has to be greater than Zero\&. "
+.ti -1c
+.RI "bool \fBvstring_isEquals\fP (const \fBvstring_t\fP *s1, const \fBvstring_t\fP *s2)"
+.br
+.RI "It Compares the size of elements of two vstrings (s1, s2) and if are equals, it compares the first n bytes of memory area of s1->data and s2->data\&. "
+.ti -1c
+.RI "bool \fBvstring_isEmpty\fP (const \fBvstring_t\fP *s)"
+.br
+.RI "Returns True if object is Empty, that is when its length is equal to Zero\&. "
+.ti -1c
+.RI "int \fBvstring_Len\fP (const \fBvstring_t\fP *s)"
+.br
+.RI "Returns the number of characters in the data object, the object's length\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Pos_Err\fP (const \fBvstring_t\fP *s, int position)"
+.br
+.RI "Control if supplied position is out of range or object is empty\&. "
+.ti -1c
+.RI "int \fBvstring_Max_capacity\fP (const \fBvstring_t\fP *s)"
+.br
+.RI "Capacity bound\&. A proportional number over sizeof integer\&. "
+.ti -1c
+.RI "void \fBvstring_Array_print\fP (\fBvstring_t\fP *s, const \fBarray_vstring_t\fP array, int size)"
+.br
+.RI "Print an array of vstring objects\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_At\fP (const \fBvstring_t\fP *s, char *item, int position)"
+.br
+.RI "Character at position in the vstring object\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Begin\fP (const \fBvstring_t\fP *s, char *item)"
+.br
+.RI "Item at data's beginning\&. "
+.ti -1c
+.RI "const char const  * \fBvstring_Data\fP (const \fBvstring_t\fP *s)"
+.br
+.RI "Method to access the string in the vstring object\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_End\fP (const \fBvstring_t\fP *s, char *item)"
+.br
+.RI "Item at data's ending\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Iter\fP (const \fBvstring_t\fP *s, char *item, int index)"
+.br
+.RI "Itertools, returns item at position in the vstring object\&. If index==0, begin; if index==-1, end\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Iter_next\fP (const \fBvstring_t\fP *s, char *item, int index)"
+.br
+.RI "Itertools, returns Item at index+1 in the vstring object\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Pattern\fP (\fBvstring_t\fP *s, const char *pattern, \fBvstring_t\fP *result)"
+.br
+.RI "Returns the strings that matches the pattern in one vstring object\&. In this case, the search is, at least, Big-O lineal time of complexity\&. We use the C's library 'fnmatch' to pattern matching\&. The pattern may include the following special characters: "
+.ti -1c
+.RI "\fBarray_vstring_t\fP \fBvstring_Split\fP (\fBvstring_t\fP *s, int *len)"
+.br
+.RI "Split in words the vstring data object\&. The delimiter is SPACE\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Capacity_edit\fP (\fBvstring_t\fP *s, int capacity)"
+.br
+.RI "To edit the capacity of the vstring object, but only is the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY\&. "
+.ti -1c
+.RI "void \fBvstring_Clear\fP (\fBvstring_t\fP *s)"
+.br
+.RI "Remove the data in the object, but it does not free the object\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_From\fP (\fBvstring_t\fP *s, const char *str)"
+.br
+.RI "Insert (an item of data) at the end of vstring object\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_From_at\fP (\fBvstring_t\fP *s, const char *str, int position)"
+.br
+.RI "Insert (an item of data) at position of vstring object\&. "
+.ti -1c
+.RI "*brief Returns the strings **param s A pointer to \fBvstring_t\fP objet *param result vstring object pointer to return the result *\fBs_stat\fP \fBvstring_Clear_ifPattern\fP (\fBvstring_t\fP *s, const char *pattern)"
+.br
+.RI "Remove the data in the object, if matches the pattern\&. "
+.ti -1c
+.RI "void \fBvstring_From_file\fP (\fBvstring_t\fP *s, const char *filename)"
+.br
+.RI "We copy a file in a vstring object\&. In this case the object is UNSAFE\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Truncate\fP (\fBvstring_t\fP *s, int position)"
+.br
+.RI "It truncates the data object at position\&. "
+.ti -1c
+.RI "void \fBvstring_Unsafe\fP (\fBvstring_t\fP *s)"
+.br
+.RI "To edit the state of the vstring object\&. By default the data is inmutable, that is, we does not allow modify its capacity\&. "
+.ti -1c
+.RI "size_t \fBsplit_String\fP (char *src, int position, int length, char delimiter)"
+.br
+.RI "To calculate the lenght of substring in the buffer, from position, to position of the delimiter\&. "
+.ti -1c
+.RI "char * \fBsubstring\fP (char *string, int position, int length)"
+.br
+.RI "To identifie substrings in another string\&. "
+.ti -1c
+.RI "void \fBvstring_Abort\fP (\fBs_stat\fP status, const char *file, int line_number)"
+.br
+.RI "This function catcher errors that the macro s_assert throws\&. "
+.ti -1c
+.RI "int \fBvstring_Pos\fP (const \fBvstring_t\fP *s, int position)"
+.br
+.RI "It calculates new position if it is a negative number\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "size_t split_String (char * src, int position, int length, char delimiter)"
+
+.PP
+To calculate the lenght of substring in the buffer, from position, to position of the delimiter\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsrc\fP The buffer with the information 
+.br
+\fIposition\fP Position from that we search the delimiter 
+.br
+\fIlength\fP Length of the buffer 
+.br
+\fIdelimiter\fP Delimiter character 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Two control characters: new line and delimiter\&. If we find '
+.br
+', it returns Zero\&. If we find 'delimiter char' it returns (index - position)\&. Otherwise returns length Zero of substring\&. 
+.RE
+.PP
+
+.SS "char* substring (char * string, int position, int length)"
+
+.PP
+To identifie substrings in another string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring\fP The buffer to divide from position to (position + length) 
+.br
+\fIposition\fP Substring from position\&. 
+.br
+\fIlength\fP Length of desired substring\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+This function returns char pointers to Heap\&. That implies the library is responsible to free them\&. It does whit the function Destroy_pointer\&. 
+.RE
+.PP
+
+.SS "void vstring_Abort (\fBs_stat\fP status, const char * file, int line_number)"
+
+.PP
+This function catcher errors that the macro s_assert throws\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile\fP 
+.br
+\fIline_number\fP 
+.RE
+.PP
+
+.SS "void vstring_Array_print (\fBvstring_t\fP * s, const \fBarray_vstring_t\fP array, int size)"
+
+.PP
+Print an array of vstring objects\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP A pointer to vstring_t object 
+.br
+\fIarray\fP An array of vstring objects 
+.br
+\fIsize\fP The number of vstrings objects in array 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_At (const \fBvstring_t\fP * s, char * item, int position)"
+
+.PP
+Character at position in the vstring object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIitem\fP To copy the value found at searched position 
+.br
+\fIposition\fP Position to search 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if position is correct and data is not empty S_ERR_IS_EMPTY if the data is empty S_ERR_OUT_OF_RANGE if position is not ok 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Begin (const \fBvstring_t\fP * s, char * item)"
+
+.PP
+Item at data's beginning\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIitem\fP To copy the value found at searched position 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if data is not empty S_ERR_IS_EMPTY if the vstring object is empty 
+.RE
+.PP
+
+.SS "int vstring_Capacity (const \fBvstring_t\fP * s)"
+
+.PP
+Returns the capacity of the specified object\&. The capacity is the maximum number of characters a object can hold\&. Capacity has to be greater than Zero\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Object whose capacity is being returned 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The capacity of the object 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Capacity_edit (\fBvstring_t\fP * s, int capacity)"
+
+.PP
+To edit the capacity of the vstring object, but only is the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The object to edit 
+.br
+\fIcapacity\fP The new capacity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK or S_ERR_UNSAFE_CAPACITY 
+.RE
+.PP
+
+.SS "void vstring_Clear (\fBvstring_t\fP * s)"
+
+.PP
+Remove the data in the object, but it does not free the object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP It is the object whose data we have to remove 
+.RE
+.PP
+
+.SS "* brief Returns the strings* * param s A pointer to \fBvstring_t\fP objet* param result vstring object pointer to return the result* \fBs_stat\fP vstring_Clear_ifPattern (\fBvstring_t\fP * s, const char * pattern)"
+
+.PP
+Remove the data in the object, if matches the pattern\&. We use the C's library 'fnmatch' to pattern matching\&. The pattern may include the following special characters:
+.PP
+.IP "\(bu" 2
+Matches zero of more characters\&. ? Matches exactly one character\&.
+.PP
+.PP
+[\&.\&.\&.] Matches one character if it's in a range of characters\&. If the first character is `!', matches if the character is not in the range\&. Between the brackets, the range is specified by listing the characters that are in the range, or two characters separated by `-' to indicate all characters in that range\&. For example, `[a-d]' matches `a', `b', `c', or `d'\&. If you want to include the literal `-' in the range, make it the first character, like in `[-afz]'\&.
+.PP
+\\ Causes the next character to not be treated as a wildcard\&. For example, `*' matches an asterisk\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP It is the object whose data we have to remove\&. We do not free the object\&. 
+.br
+\fIpattern\fP Pattern searched\&. It is a string\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if the pattern matches, or S_IS_EMPTY if the vstring object is empty or S_ERR_VALUE_NOT_FOUND 
+.RE
+.PP
+
+.SS "const char const* vstring_Data (const \fBvstring_t\fP * s)"
+
+.PP
+Method to access the string in the vstring object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP the object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the string wrapped for the object 
+.RE
+.PP
+
+.SS "void vstring_Destroy (\fBvstring_t\fP * s)"
+
+.PP
+Destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The vstring object to free 
+.RE
+.PP
+
+.SS "void vstring_Destroy_Array (\fBarray_vstring_t\fP s, int len)"
+
+.PP
+Array destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The pointer array to free 
+.br
+\fIlen\fP The number of vstring objects in the array 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_End (const \fBvstring_t\fP * s, char * item)"
+
+.PP
+Item at data's ending\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIitem\fP To copy the value found at searched position 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if data is not empty S_ERR_IS_EMPTY if the vstring object is empty 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_From (\fBvstring_t\fP * s, const char * str)"
+
+.PP
+Insert (an item of data) at the end of vstring object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIitem\fP Value to insert in vstring object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len of the string to append plus the len of the data object is greater than CAPACITY 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_From_at (\fBvstring_t\fP * s, const char * str, int position)"
+
+.PP
+Insert (an item of data) at position of vstring object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIstr\fP The string to insert 
+.br
+\fIposition\fP Position at we insert the string\&. Position is Zero index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+We control the position\&. The function returns S_OK or an error: S_ERR_IS_EMPTY S_ERR_OUT_OF_RANGE 
+.RE
+.PP
+
+.SS "void vstring_From_file (\fBvstring_t\fP * s, const char * filename)"
+
+.PP
+We copy a file in a vstring object\&. In this case the object is UNSAFE\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The vstring object 
+.br
+\fIfilename\fP One string with the path and the number of the file\&. 
+.RE
+.PP
+
+.SS "bool vstring_isEmpty (const \fBvstring_t\fP * s)"
+
+.PP
+Returns True if object is Empty, that is when its length is equal to Zero\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Bool 
+.RE
+.PP
+
+.SS "bool vstring_isEquals (const \fBvstring_t\fP * s1, const \fBvstring_t\fP * s2)"
+
+.PP
+It Compares the size of elements of two vstrings (s1, s2) and if are equals, it compares the first n bytes of memory area of s1->data and s2->data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs1\fP A vstring object 
+.br
+\fIs2\fP A vstring object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True, if s1 and s2 are equals, otherwise False 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Iter (const \fBvstring_t\fP * s, char * item, int index)"
+
+.PP
+Itertools, returns item at position in the vstring object\&. If index==0, begin; if index==-1, end\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIitem\fP To copy the value found at searched position 
+.br
+\fIindex\fP Position to search 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if position is correct and data is not empty S_ERR_IS_EMPTY if the vstring object is empty S_ERR_OUT_OF_RANGE if position is not ok 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Iter_next (const \fBvstring_t\fP * s, char * item, int index)"
+
+.PP
+Itertools, returns Item at index+1 in the vstring object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIitem\fP To copy the value found at searched position 
+.br
+\fIindex\fP Position to search 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if position is correct and data is not empty S_ERR_IS_EMPTY if the vstring object is empty S_ERR_OUT_OF_RANGE if position is not ok 
+.RE
+.PP
+
+.SS "int vstring_Len (const \fBvstring_t\fP * s)"
+
+.PP
+Returns the number of characters in the data object, the object's length\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+s->len, the number of characters in the data object 
+.RE
+.PP
+
+.SS "int vstring_Max_capacity (const \fBvstring_t\fP * s)"
+
+.PP
+Capacity bound\&. A proportional number over sizeof integer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP the object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Capacity bound 
+.RE
+.PP
+
+.SS "\fBvstring_t\fP* vstring_New (int capacity)"
+
+.PP
+Constructor\&. The data array is empty\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcapacity\fP Maximum number of characters in the object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Returns a vstring object with its features by default\&. All the objects are safes: their capacity is inmutable 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Pattern (\fBvstring_t\fP * s, const char * pattern, \fBvstring_t\fP * result)"
+
+.PP
+Returns the strings that matches the pattern in one vstring object\&. In this case, the search is, at least, Big-O lineal time of complexity\&. We use the C's library 'fnmatch' to pattern matching\&. The pattern may include the following special characters: 
+.IP "\(bu" 2
+Matches zero of more characters\&. ? Matches exactly one character\&.
+.PP
+.PP
+[\&.\&.\&.] Matches one character if it's in a range of characters\&. If the first character is `!', matches if the character is not in the range\&. Between the brackets, the range is specified by listing the characters that are in the range, or two characters separated by `-' to indicate all characters in that range\&. For example, `[a-d]' matches `a', `b', `c', or `d'\&. If you want to include the literal `-' in the range, make it the first character, like in `[-afz]'\&.
+.PP
+\\ Causes the next character to not be treated as a wildcard\&. For example, `*' matches an asterisk\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP A pointer to vstring_t objet 
+.br
+\fIpattern\fP Pattern searched\&. It is a string\&. 
+.br
+\fIresult\fP vstring object pointer to return the result 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if the element was found, or S_IS_EMPTY if the vstring object is empty or S_ERR_VALUE_NOT_FOUND S_ERR_INVALID ARGUMENT 
+.RE
+.PP
+
+.SS "int vstring_Pos (const \fBvstring_t\fP * s, int position)"
+
+.PP
+It calculates new position if it is a negative number\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIposition\fP Position to calculate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+New position, if it is a negative number 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Pos_Err (const \fBvstring_t\fP * s, int position)"
+
+.PP
+Control if supplied position is out of range or object is empty\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Pointer to vstring_t type variable 
+.br
+\fIposition\fP Position to calculate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK if position is correct and object is not empty S_ERR_IS_EMPTY if the vstring is empty S_ERR_OUT_OF_RANGE if position is not ok 
+.RE
+.PP
+
+.SS "\fBarray_vstring_t\fP vstring_Split (\fBvstring_t\fP * s, int * len)"
+
+.PP
+Split in words the vstring data object\&. The delimiter is SPACE\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP A pointer to vstring object 
+.br
+\fIlen\fP To copy the number of vstrings in the array that is returns 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+An array of vstring objects 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Truncate (\fBvstring_t\fP * s, int position)"
+
+.PP
+It truncates the data object at position\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The data object 
+.br
+\fIposition\fP The position at we truncate the string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+We control the position\&. The function returns S_OK or an error: S_ERR_IS_EMPTY S_ERR_OUT_OF_RANGE 
+.RE
+.PP
+
+.SS "void vstring_Unsafe (\fBvstring_t\fP * s)"
+
+.PP
+To edit the state of the vstring object\&. By default the data is inmutable, that is, we does not allow modify its capacity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The object that we edit its state 
+.RE
+.PP
+
+.SS "\fBvstring_t\fP* vstring_with_Capacity (char * str, int capacity)"
+
+.PP
+Constructor\&. We append the data array with 'str'\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstr\fP String to append the data in the vstring object 
+.br
+\fIcapacity\fP Maximum number of characters in the object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Returns a vstring object with its features by default\&. All the objects are safes: their capacity is inmutable 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for vString from the source code\&.

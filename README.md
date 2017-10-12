@@ -3,6 +3,7 @@
 **Example**
 
 ```dart
+
     // We create the vstring object and append its data with one string.
     vstring_t *s =
             vstring_with_Capacity("Hello world! and welcome torticolis", 50);

@@ -1,0 +1,45 @@
+.TH "Vstring" 3 "Thu Oct 12 2017" "Version 0.1" "vString" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Vstring
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <vstring\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBlen\fP"
+.br
+.ti -1c
+.RI "char * \fBdata\fP"
+.br
+.ti -1c
+.RI "int \fBcapacity\fP"
+.br
+.ti -1c
+.RI "size_t \fBele_size\fP"
+.br
+.ti -1c
+.RI "\fBsafe_t\fP \fBsafe\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "int Vstring::capacity"
+Capacity, in number of characters\&. Capacity has to be greater than Zero 
+.SS "char* Vstring::data"
+Array of characters to hold the information 
+.SS "size_t Vstring::ele_size"
+Reserved to other encoders 
+.SS "int Vstring::len"
+Number of characters in data 
+.SS "\fBsafe_t\fP Vstring::safe"
+By default all the objects are safe\&. That means its capacity is inmutable 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for vString from the source code\&.

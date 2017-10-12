@@ -35,42 +35,57 @@ typedef enum S_safe {
 
 
 typedef struct Vstring{
-        int len; /**<  Number of elements in Vector object*/
 
-        char *data; /**< Array to hold the information  */
+        int len; /**<  Number of characters in data*/
 
-        int capacity; /**<  Capacity, in number of elements. Capacity has
+        char *data; /**< Array of characters to hold the information  */
+
+        int capacity; /**<  Capacity, in number of characters. Capacity has
                                  to be greater than Zero*/
-        size_t ele_size;
-        safe_t safe;
+        size_t ele_size; /**< Reserved to other encoders  */
+        safe_t safe; /**<  By default all the objects are safe. That means
+                                its capacity is inmutable*/
 
 } vstring_t;
 
+
+/**
+ * @brief An array of vstring objects
+ *
+ */
 typedef vstring_t ** array_vstring_t;
 
 
 
+/**
+ * @brief  Control of errors
+ *
+ *
+ */
 typedef enum S_stat {
-    S_OK = 0,
-    S_ERR_IS_EMPTY = 1,
-    S_ERR_VALUE_NOT_FOUND = 2,
-    S_ERR_OUT_OF_RANGE = 3,
-    S_ERR_FILE = 4,
-    S_ERR_STACK = 5,
-    S_ERR_ALLOCATE_MEMORY = 6,
-    S_ERR_MEMCPY = 7,
-    S_ERR_MEMMOVE = 8,
-    S_ERR_INVALID_ARGUMENT = 9,
-    S_ERR_MAX_CAPACITY = 10,
-    S_ERR_UNSAFE_CAPACITY = 11,
-    S_ERR_OPEN_FILE = 12,
+    S_OK = 0, /**< All is ok, no errors */
+    S_ERR_IS_EMPTY = 1, /**<  The Length in the object is Zero*/
+    S_ERR_VALUE_NOT_FOUND = 2, /**< The object does not contains the
+                                                            data searched */
+    S_ERR_OUT_OF_RANGE = 3, /**< The position is out of the bounds  */
+    S_ERR_FILE = 4, /**< The file is unavoible */
+    S_ERR_STACK = 5, /**< The pointer points to the STACK */
+    S_ERR_ALLOCATE_MEMORY = 6, /**< Error in Memory Manager with
+                                                        malloc, calloc or realloc */
+    S_ERR_MEMCPY = 7, /**< Error in Memory with memcpy function */
+    S_ERR_MEMMOVE = 8, /**< Error in Memory with memmove function*/
+    S_ERR_INVALID_ARGUMENT = 9, /**< The parameters in the function
+                                                            are not valids */
+    S_ERR_MAX_CAPACITY = 10, /**< Bound of capacity */
+    S_ERR_UNSAFE_CAPACITY = 11, /**< The capacity is inmutable.
+                                                             The object is S_SAFE */
+    S_ERR_OPEN_FILE = 12, /**< The file is unavoible */
 }s_stat;
 
 
 
 /**
- * @brief     Length of strings that we want to split in substrings.
- *                This data is used in the feature Insert_from_file.
+ * @brief     Length of strings or capacity of our vstring objects
  *
  */
 #define BUFFER_SIZE 1024
@@ -85,8 +100,33 @@ typedef enum S_stat {
     }                                                                                                         \
 }
 
+/**
+ * @brief               Control of errors
+ * @param X         Test. If it evaluates to FALSE it throws an error
+ * @param Y         s_stat data to identifie the throwed error
+ * @returns           Nothing if test evaluates to true. Otherwise it throws
+ *                          an error. The catcher is the function vstring_Abort
+ */
 #define s_assert(X, Y) _s_assert(X, Y, __FILE__, __LINE__)
 
+/**
+ * @brief               Can be used like
+ *                             int values[] = { 1, 2, 3 };
+ *                             foreach(int *v, values) {
+ *                                  printf("value: %d\n", *v);
+ *                             }
+ * @param item
+ * @param array
+ * @returns
+ *
+ *
+ */
+#define foreach(item, array, size)                                                                            \
+    for(int keep = 1, \
+            index= 0;                                                                                         \
+        keep && index != size;                                                                                \
+        keep = !keep, index++)                                                                                \
+      for(item = *(array + index); keep; keep = !keep)
 
 /***************************************************************
  *
@@ -118,6 +158,8 @@ int vstring_Max_capacity(const vstring_t *s);
  *                                  Element Access Methods
  *
  * *************************************************************/
+void vstring_Array_print(vstring_t *item, const array_vstring_t array,
+                                        int size);
 s_stat vstring_Begin(const vstring_t *s, char *item);
 s_stat vstring_End(const vstring_t *s, char *item);
 s_stat vstring_At(const vstring_t *s, char *item, int position);
@@ -159,4 +201,3 @@ size_t  split_String( char* src, int position, int length,
 char * substring(char *string, int position, int length);
 
 #endif /* VSTRING_H */
-

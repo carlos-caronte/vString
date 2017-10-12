@@ -59,9 +59,9 @@ int main() {
     int len = 0;
     array_vstring_t v = vstring_Split(s, &len);
     printf("The string contains %d words,,\n", len);
-    for (size_t index = 0; index < len; index++){
-        printf("V[%d]: %s\n", index, v[index]->data);
-    }
+
+    //We print the items in array
+    vstring_Array_print(z, v, len);
 
     // We have to use this Destructor, in this case
     vstring_Destroy_Array(v, len);

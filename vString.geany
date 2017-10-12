@@ -20,13 +20,14 @@ indent_mode=2
 [project]
 name=vString
 base_path=/home/carlos/C_programming/vString
+description=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=111
 
 [files]
-current_page=0
+current_page=-1
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
