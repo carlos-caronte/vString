@@ -6,7 +6,7 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = vString
 PROJECT_NUMBER         = 0.1
-PROJECT_BRIEF          = A library in ansi C for Strings
+PROJECT_BRIEF          = A simple ansi-C string library 
 PROJECT_LOGO           =
 OUTPUT_DIRECTORY       =
 CREATE_SUBDIRS         = NO
