@@ -54,20 +54,34 @@ int main() {
     if (p == 's')
         printf("Ok, the last character is 's'...!!!!\n");
 
-    // if we want to split the string, the library returns an array of strings
-    // In len, the library returns the number of strings in array
+
     int len = 0;
-    array_vstring_t v = vstring_Split(s, &len);
+
+    // if we want to know the number of words in a vstring object
+    // We use the delimiter ", \t\n"
+    //
+    vstring_Count_words(s, &len);
     printf("The string contains %d words,,\n", len);
 
+    // but, if we want to split the string, the library returns an array of
+    // strings ,and then, in the 'len' variable, the library returns the
+    // number of strings in the new array
+    //
+    array_vstring_t v = vstring_Split(s, &len);
+
+    vstring_t * z;
+
     //We print the items in array
+    //
     vstring_Array_print(z, v, len);
 
     // We have to use this Destructor, in this case
+    //
     vstring_Destroy_Array(v, len);
 
 
     // The library knows if two strings are equals or not
+    //
     vstring_t *u = vstring_with_Capacity("Hello world!", 50);
     vstring_t *y = vstring_with_Capacity("Hello world!", 50);
     printf("%s and %s are the same? %s\n", vstring_Data(u),
@@ -75,10 +89,17 @@ int main() {
                             vstring_isEquals(u, y)?"True":"False");
 
     // We insert a string in the vstring object data, at position 6
+    //
     vstring_From_at(y, "Ana", 6);
     printf("%s and %s are the same? %s\n", vstring_Data(u),
                             vstring_Data(y),
                             vstring_isEquals(u, y)?"True":"False");
+
+    vstring_Concat(u, y);
+    printf("Concatenate?: %s\n", vstring_Data(u));
+
+    vstring_Rep(y, 3);
+    printf("Repeat?: %s\n", vstring_Data(y));
 
     vstring_Destroy(u);
     vstring_Destroy(y);

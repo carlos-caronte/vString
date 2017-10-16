@@ -2,7 +2,7 @@
  * File:   vstring.h
  * Author: jcr
  *
- * Created on 11 Octoberber, 2017
+ * Created on 11 October, 2017
  */
  /*
  * Copyright (C) 2017 Juan Carlos Rey <carlos.caronte@gmail.com>
@@ -146,6 +146,7 @@ void vstring_Destroy_Array(array_vstring_t s, int len);
  *
  * *************************************************************/
 int vstring_Capacity(const vstring_t *s);
+void vstring_Count_words(vstring_t *s, int *count);
 const char const *vstring_Data(const vstring_t *s);
 bool vstring_isEquals(const vstring_t *s1, const vstring_t *s2);
 bool vstring_isEmpty(const vstring_t  *s);
@@ -163,8 +164,6 @@ void vstring_Array_print(vstring_t *item, const array_vstring_t array,
 s_stat vstring_Begin(const vstring_t *s, char *item);
 s_stat vstring_End(const vstring_t *s, char *item);
 s_stat vstring_At(const vstring_t *s, char *item, int position);
-s_stat vstring_Iter(const vstring_t *s, char *item, int index);
-s_stat vstring_Iter_next(const vstring_t *s, char *item, int index);
 s_stat vstring_Pattern(vstring_t *s, const char *pattern,
                                             vstring_t *result);
 
@@ -179,10 +178,13 @@ array_vstring_t vstring_Split(vstring_t *s, int *len);
  * *************************************************************/
 s_stat vstring_Capacity_edit(vstring_t *s, int capacity);
 void vstring_Clear(vstring_t *s) ;
+s_stat vstring_Clear_ifPattern(vstring_t *s, const char *pattern);
+s_stat vstring_Concat(vstring_t *s, vstring_t *t);
 s_stat vstring_From(vstring_t *s, const char *str);
+void vstring_Inmutable(vstring_t *s);
 s_stat vstring_From_at(vstring_t *s, const char *str, int position);
 void vstring_From_file(vstring_t *s, const char *filename);
-s_stat vstring_Clear_ifPattern(vstring_t *s, const char *pattern);
+s_stat vstring_Rep(vstring_t *s, size_t num);
 s_stat vstring_Truncate(vstring_t *s, int position);
 void vstring_Unsafe(vstring_t *s);
 
@@ -196,8 +198,14 @@ void vstring_Abort(s_stat status,
                             const char* file, int line_number);
 
 int vstring_Pos(const vstring_t *s, int position);
-size_t  split_String( char* src, int position, int length,
-                                                                char delimiter );
-char * substring(char *string, int position, int length);
+
+size_t  str_Length( char* src, int position, int length,
+                                                            char delimiter );
+
+char * str_Substring(char *string, int position, int length);
+
+
+char *str_Repeat (char *str, size_t count);
+
 
 #endif /* VSTRING_H */
