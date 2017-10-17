@@ -41,10 +41,10 @@ typedef struct Vstring{
         char *data; /**< Array of characters to hold the information  */
 
         int capacity; /**<  Capacity, in number of characters. Capacity has
-                                 to be greater than Zero*/
+        to be greater than Zero*/
         size_t ele_size; /**< Reserved to other encoders  */
         safe_t safe; /**<  By default all the objects are safe. That means
-                                its capacity is inmutable*/
+        its capacity is inmutable*/
 
 } vstring_t;
 
@@ -66,19 +66,19 @@ typedef enum S_stat {
     S_OK = 0, /**< All is ok, no errors */
     S_ERR_IS_EMPTY = 1, /**<  The Length in the object is Zero*/
     S_ERR_VALUE_NOT_FOUND = 2, /**< The object does not contains the
-                                                            data searched */
+    data searched */
     S_ERR_OUT_OF_RANGE = 3, /**< The position is out of the bounds  */
     S_ERR_FILE = 4, /**< The file is unavoible */
     S_ERR_STACK = 5, /**< The pointer points to the STACK */
     S_ERR_ALLOCATE_MEMORY = 6, /**< Error in Memory Manager with
-                                                        malloc, calloc or realloc */
+    malloc, calloc or realloc */
     S_ERR_MEMCPY = 7, /**< Error in Memory with memcpy function */
     S_ERR_MEMMOVE = 8, /**< Error in Memory with memmove function*/
     S_ERR_INVALID_ARGUMENT = 9, /**< The parameters in the function
-                                                            are not valids */
+    are not valids */
     S_ERR_MAX_CAPACITY = 10, /**< Bound of capacity */
     S_ERR_UNSAFE_CAPACITY = 11, /**< The capacity is inmutable.
-                                                             The object is S_SAFE */
+    The object is S_SAFE */
     S_ERR_OPEN_FILE = 12, /**< The file is unavoible */
 }s_stat;
 
@@ -101,23 +101,21 @@ typedef enum S_stat {
 }
 
 /**
- * @brief               Control of errors
- * @param X         Test. If it evaluates to FALSE it throws an error
- * @param Y         s_stat data to identifie the throwed error
- * @returns           Nothing if test evaluates to true. Otherwise it throws
- *                          an error. The catcher is the function vstring_Abort
+ * @brief       Control of errors
+ * @param X     Test. If it evaluates to FALSE it throws an error
+ * @param Y     s_stat data to identifie the throwed error
+ * @returns     Nothing if test evaluates to true. Otherwise it throws
+ *              an error. The catcher is the function vstring_Abort
  */
 #define s_assert(X, Y) _s_assert(X, Y, __FILE__, __LINE__)
 
+
 /**
- * @brief               Can be used like
- *                             int values[] = { 1, 2, 3 };
- *                             foreach(int *v, values) {
- *                                  printf("value: %d\n", *v);
- *                             }
- * @param item
- * @param array
- * @returns
+ * @brief               A foreach bucle for arrays
+ * @param item      The variable type of the initializer for bucle
+ * @param array     The array
+ * @param size      The length of the array
+ * @returns         A 'for' loop that traverses all array elements
  *
  *
  */

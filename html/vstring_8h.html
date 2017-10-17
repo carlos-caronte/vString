@@ -110,7 +110,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:ae9b35607ef8b3a117a1a8116ca2445c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control of errors.  <a href="#ae9b35607ef8b3a117a1a8116ca2445c4">More...</a><br /></td></tr>
 <tr class="separator:ae9b35607ef8b3a117a1a8116ca2445c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2724299ed5373aeda3b37850fd958d9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a2724299ed5373aeda3b37850fd958d9c">foreach</a>(item,  array,  size)</td></tr>
-<tr class="memdesc:a2724299ed5373aeda3b37850fd958d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be used like int values[] = { 1, 2, 3 }; <a class="el" href="vstring_8h.html#a2724299ed5373aeda3b37850fd958d9c" title="Can be used like int values[] = { 1, 2, 3 }; foreach(int *v, values) { printf(&quot;value: %d\n&quot;...">foreach(int *v, values)</a> { printf("value: %d\n", *v); }.  <a href="#a2724299ed5373aeda3b37850fd958d9c">More...</a><br /></td></tr>
+<tr class="memdesc:a2724299ed5373aeda3b37850fd958d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A foreach bucle for arrays.  <a href="#a2724299ed5373aeda3b37850fd958d9c">More...</a><br /></td></tr>
 <tr class="separator:a2724299ed5373aeda3b37850fd958d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -157,7 +157,7 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae753d0e60ab5d225eec1fe264b58e36a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#ae753d0e60ab5d225eec1fe264b58e36a">vstring_New</a> (int capacity)</td></tr>
-<tr class="memdesc:ae753d0e60ab5d225eec1fe264b58e36a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. The data array is empty.  <a href="#ae753d0e60ab5d225eec1fe264b58e36a">More...</a><br /></td></tr>
+<tr class="memdesc:ae753d0e60ab5d225eec1fe264b58e36a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. There is no data in the vstring object. After 'New', you have to use 'From'.  <a href="#ae753d0e60ab5d225eec1fe264b58e36a">More...</a><br /></td></tr>
 <tr class="separator:ae753d0e60ab5d225eec1fe264b58e36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb16e5781ad722484ddcbd2b769c8acb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#acb16e5781ad722484ddcbd2b769c8acb">vstring_with_Capacity</a> (char *str, int capacity)</td></tr>
 <tr class="memdesc:acb16e5781ad722484ddcbd2b769c8acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. We append the data array with 'str'.  <a href="#acb16e5781ad722484ddcbd2b769c8acb">More...</a><br /></td></tr>
@@ -169,8 +169,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:a328a0fedca0928cbc471e0eec8f802f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array destructor.  <a href="#a328a0fedca0928cbc471e0eec8f802f3">More...</a><br /></td></tr>
 <tr class="separator:a328a0fedca0928cbc471e0eec8f802f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54c7f01c2c5a4649e0a2c7a9564a4848"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a54c7f01c2c5a4649e0a2c7a9564a4848">vstring_Capacity</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s)</td></tr>
-<tr class="memdesc:a54c7f01c2c5a4649e0a2c7a9564a4848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the capacity of the specified object. The capacity is the maximum number of characters a object can hold. Capacity has to be greater than Zero.  <a href="#a54c7f01c2c5a4649e0a2c7a9564a4848">More...</a><br /></td></tr>
+<tr class="memdesc:a54c7f01c2c5a4649e0a2c7a9564a4848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the capacity of the specified object. The capacity is the maximum number of characters that an object can hold. Capacity has to be greater than Zero.  <a href="#a54c7f01c2c5a4649e0a2c7a9564a4848">More...</a><br /></td></tr>
 <tr class="separator:a54c7f01c2c5a4649e0a2c7a9564a4848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab56b96ac07a96ec4c9c9b2b16f4a4736"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#ab56b96ac07a96ec4c9c9b2b16f4a4736">vstring_Count_words</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, int *count)</td></tr>
+<tr class="memdesc:ab56b96ac07a96ec4c9c9b2b16f4a4736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of words in a vstring object.  <a href="#ab56b96ac07a96ec4c9c9b2b16f4a4736">More...</a><br /></td></tr>
+<tr class="separator:ab56b96ac07a96ec4c9c9b2b16f4a4736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcea71a6aca78c2f12e4df0f9d22e593"><td class="memItemLeft" align="right" valign="top">const char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#adcea71a6aca78c2f12e4df0f9d22e593">vstring_Data</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s)</td></tr>
 <tr class="memdesc:adcea71a6aca78c2f12e4df0f9d22e593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to access the string in the vstring object.  <a href="#adcea71a6aca78c2f12e4df0f9d22e593">More...</a><br /></td></tr>
 <tr class="separator:adcea71a6aca78c2f12e4df0f9d22e593"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,7 +181,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a9bd9ef6168653ebe7308e6987010dcc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">It Compares the size of elements of two vstrings (s1, s2) and if are equals, it compares the first n bytes of memory area of s1-&gt;data and s2-&gt;data.  <a href="#a9bd9ef6168653ebe7308e6987010dcc4">More...</a><br /></td></tr>
 <tr class="separator:a9bd9ef6168653ebe7308e6987010dcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc2e2ec52b881f17f201f5f83cfe50fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#acc2e2ec52b881f17f201f5f83cfe50fb">vstring_isEmpty</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s)</td></tr>
-<tr class="memdesc:acc2e2ec52b881f17f201f5f83cfe50fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns True if object is Empty, that is when its length is equal to Zero.  <a href="#acc2e2ec52b881f17f201f5f83cfe50fb">More...</a><br /></td></tr>
+<tr class="memdesc:acc2e2ec52b881f17f201f5f83cfe50fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns True if object is Empty, that is, when its length is equal to Zero.  <a href="#acc2e2ec52b881f17f201f5f83cfe50fb">More...</a><br /></td></tr>
 <tr class="separator:acc2e2ec52b881f17f201f5f83cfe50fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a220d38411de289984744a7efc15006ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a220d38411de289984744a7efc15006ec">vstring_Len</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s)</td></tr>
 <tr class="memdesc:a220d38411de289984744a7efc15006ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of characters in the data object, the object's length.  <a href="#a220d38411de289984744a7efc15006ec">More...</a><br /></td></tr>
@@ -201,12 +204,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a38bc950f745a48f0fd469409925ade99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a38bc950f745a48f0fd469409925ade99">vstring_At</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, char *item, int position)</td></tr>
 <tr class="memdesc:a38bc950f745a48f0fd469409925ade99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Character at position in the vstring object.  <a href="#a38bc950f745a48f0fd469409925ade99">More...</a><br /></td></tr>
 <tr class="separator:a38bc950f745a48f0fd469409925ade99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af623934e1674da8b37584bf9e77c820c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#af623934e1674da8b37584bf9e77c820c">vstring_Iter</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, char *item, int index)</td></tr>
-<tr class="memdesc:af623934e1674da8b37584bf9e77c820c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Itertools, returns item at position in the vstring object. If index==0, begin; if index==-1, end.  <a href="#af623934e1674da8b37584bf9e77c820c">More...</a><br /></td></tr>
-<tr class="separator:af623934e1674da8b37584bf9e77c820c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bd07b07a80633b96ff00bbbdc6f4311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a3bd07b07a80633b96ff00bbbdc6f4311">vstring_Iter_next</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, char *item, int index)</td></tr>
-<tr class="memdesc:a3bd07b07a80633b96ff00bbbdc6f4311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Itertools, returns Item at index+1 in the vstring object.  <a href="#a3bd07b07a80633b96ff00bbbdc6f4311">More...</a><br /></td></tr>
-<tr class="separator:a3bd07b07a80633b96ff00bbbdc6f4311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c8793f7db9506b6a06d32acae47089f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a1c8793f7db9506b6a06d32acae47089f">vstring_Pattern</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, const char *pattern, <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *result)</td></tr>
 <tr class="memdesc:a1c8793f7db9506b6a06d32acae47089f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the strings that matches the pattern in one vstring object. In this case, the search is, at least, Big-O lineal time of complexity. We use the C's library 'fnmatch' to pattern matching. The pattern may include the following special characters:  <a href="#a1c8793f7db9506b6a06d32acae47089f">More...</a><br /></td></tr>
 <tr class="separator:a1c8793f7db9506b6a06d32acae47089f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,23 +211,32 @@ Functions</h2></td></tr>
 <tr class="memdesc:a44dbc7ba4a6ef1517735fce8e96d6381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split in words the vstring data object. The delimiter is SPACE.  <a href="#a44dbc7ba4a6ef1517735fce8e96d6381">More...</a><br /></td></tr>
 <tr class="separator:a44dbc7ba4a6ef1517735fce8e96d6381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4747b37d2b802d21a3154c849a79e5f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a4747b37d2b802d21a3154c849a79e5f5">vstring_Capacity_edit</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, int capacity)</td></tr>
-<tr class="memdesc:a4747b37d2b802d21a3154c849a79e5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">To edit the capacity of the vstring object, but only is the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY.  <a href="#a4747b37d2b802d21a3154c849a79e5f5">More...</a><br /></td></tr>
+<tr class="memdesc:a4747b37d2b802d21a3154c849a79e5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">To edit the capacity of the vstring object, but only if the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY.  <a href="#a4747b37d2b802d21a3154c849a79e5f5">More...</a><br /></td></tr>
 <tr class="separator:a4747b37d2b802d21a3154c849a79e5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54116e30dafe237bf0d9a85187c922ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a54116e30dafe237bf0d9a85187c922ad">vstring_Clear</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s)</td></tr>
 <tr class="memdesc:a54116e30dafe237bf0d9a85187c922ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the data in the object, but it does not free the object.  <a href="#a54116e30dafe237bf0d9a85187c922ad">More...</a><br /></td></tr>
 <tr class="separator:a54116e30dafe237bf0d9a85187c922ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5299029fe95ba14539ed0b6f715dd61b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a5299029fe95ba14539ed0b6f715dd61b">vstring_Clear_ifPattern</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, const char *pattern)</td></tr>
+<tr class="memdesc:a5299029fe95ba14539ed0b6f715dd61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the data in the object, if matches the pattern.  <a href="#a5299029fe95ba14539ed0b6f715dd61b">More...</a><br /></td></tr>
+<tr class="separator:a5299029fe95ba14539ed0b6f715dd61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7db200d83921c63fea3f0df4b4397c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#abe7db200d83921c63fea3f0df4b4397c">vstring_Concat</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *t)</td></tr>
+<tr class="memdesc:abe7db200d83921c63fea3f0df4b4397c"><td class="mdescLeft">&#160;</td><td class="mdescRight">It concatenates two vstrings objects in the first object.  <a href="#abe7db200d83921c63fea3f0df4b4397c">More...</a><br /></td></tr>
+<tr class="separator:abe7db200d83921c63fea3f0df4b4397c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a308e45d1c6f67e40087567c7016928f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a308e45d1c6f67e40087567c7016928f5">vstring_From</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, const char *str)</td></tr>
 <tr class="memdesc:a308e45d1c6f67e40087567c7016928f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert (an item of data) at the end of vstring object.  <a href="#a308e45d1c6f67e40087567c7016928f5">More...</a><br /></td></tr>
 <tr class="separator:a308e45d1c6f67e40087567c7016928f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a836243d00fae0cf4f26376063a7b494e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a836243d00fae0cf4f26376063a7b494e">vstring_Inmutable</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s)</td></tr>
+<tr class="memdesc:a836243d00fae0cf4f26376063a7b494e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the object vstring inmutable, that is, SAFE and capacity == len.  <a href="#a836243d00fae0cf4f26376063a7b494e">More...</a><br /></td></tr>
+<tr class="separator:a836243d00fae0cf4f26376063a7b494e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b5f341f6b993c161547916de371b52a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a8b5f341f6b993c161547916de371b52a">vstring_From_at</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, const char *str, int position)</td></tr>
 <tr class="memdesc:a8b5f341f6b993c161547916de371b52a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert (an item of data) at position of vstring object.  <a href="#a8b5f341f6b993c161547916de371b52a">More...</a><br /></td></tr>
 <tr class="separator:a8b5f341f6b993c161547916de371b52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2227ecf2d058cd0908317bfa6b24c1cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a2227ecf2d058cd0908317bfa6b24c1cd">vstring_From_file</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, const char *filename)</td></tr>
 <tr class="memdesc:a2227ecf2d058cd0908317bfa6b24c1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">We copy a file in a vstring object. In this case the object is UNSAFE.  <a href="#a2227ecf2d058cd0908317bfa6b24c1cd">More...</a><br /></td></tr>
 <tr class="separator:a2227ecf2d058cd0908317bfa6b24c1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5299029fe95ba14539ed0b6f715dd61b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a5299029fe95ba14539ed0b6f715dd61b">vstring_Clear_ifPattern</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, const char *pattern)</td></tr>
-<tr class="memdesc:a5299029fe95ba14539ed0b6f715dd61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the data in the object, if matches the pattern.  <a href="#a5299029fe95ba14539ed0b6f715dd61b">More...</a><br /></td></tr>
-<tr class="separator:a5299029fe95ba14539ed0b6f715dd61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31cb3d471a79cc429f23131b91f8cf64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a31cb3d471a79cc429f23131b91f8cf64">vstring_Rep</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, size_t num)</td></tr>
+<tr class="memdesc:a31cb3d471a79cc429f23131b91f8cf64"><td class="mdescLeft">&#160;</td><td class="mdescRight">It concatenates the source vstring object n times.  <a href="#a31cb3d471a79cc429f23131b91f8cf64">More...</a><br /></td></tr>
+<tr class="separator:a31cb3d471a79cc429f23131b91f8cf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b0d1c753429232e89662d70f55156c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a2b0d1c753429232e89662d70f55156c5">vstring_Truncate</a> (<a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, int position)</td></tr>
 <tr class="memdesc:a2b0d1c753429232e89662d70f55156c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">It truncates the data object at position.  <a href="#a2b0d1c753429232e89662d70f55156c5">More...</a><br /></td></tr>
 <tr class="separator:a2b0d1c753429232e89662d70f55156c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,12 +249,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a83556e202b2cfca2938a44a78f9174ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a83556e202b2cfca2938a44a78f9174ca">vstring_Pos</a> (const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *s, int position)</td></tr>
 <tr class="memdesc:a83556e202b2cfca2938a44a78f9174ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">It calculates new position if it is a negative number.  <a href="#a83556e202b2cfca2938a44a78f9174ca">More...</a><br /></td></tr>
 <tr class="separator:a83556e202b2cfca2938a44a78f9174ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a919f1497130045689bdacef5455dd242"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a919f1497130045689bdacef5455dd242">split_String</a> (char *src, int position, int length, char delimiter)</td></tr>
-<tr class="memdesc:a919f1497130045689bdacef5455dd242"><td class="mdescLeft">&#160;</td><td class="mdescRight">To calculate the lenght of substring in the buffer, from position, to position of the delimiter.  <a href="#a919f1497130045689bdacef5455dd242">More...</a><br /></td></tr>
-<tr class="separator:a919f1497130045689bdacef5455dd242"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6267c19ae253842dbeeed10b3a846eb2"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a6267c19ae253842dbeeed10b3a846eb2">substring</a> (char *string, int position, int length)</td></tr>
-<tr class="memdesc:a6267c19ae253842dbeeed10b3a846eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">To identifie substrings in another string.  <a href="#a6267c19ae253842dbeeed10b3a846eb2">More...</a><br /></td></tr>
-<tr class="separator:a6267c19ae253842dbeeed10b3a846eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ad0ab9e5ba523a300aeb85782e704bb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a9ad0ab9e5ba523a300aeb85782e704bb">str_Length</a> (char *src, int position, int length, char delimiter)</td></tr>
+<tr class="memdesc:a9ad0ab9e5ba523a300aeb85782e704bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">To calculate the lenght of substring in the buffer, from position, to position of the delimiter.  <a href="#a9ad0ab9e5ba523a300aeb85782e704bb">More...</a><br /></td></tr>
+<tr class="separator:a9ad0ab9e5ba523a300aeb85782e704bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeca6dd2ae683d17ae11336f83aafeb1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#aaeca6dd2ae683d17ae11336f83aafeb1">str_Substring</a> (char *string, int position, int length)</td></tr>
+<tr class="memdesc:aaeca6dd2ae683d17ae11336f83aafeb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">To identifie substrings in another string.  <a href="#aaeca6dd2ae683d17ae11336f83aafeb1">More...</a><br /></td></tr>
+<tr class="separator:aaeca6dd2ae683d17ae11336f83aafeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6721d6c2b72fdc1e068b02131ac4fc52"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vstring_8h.html#a6721d6c2b72fdc1e068b02131ac4fc52">str_Repeat</a> (char *str, size_t count)</td></tr>
+<tr class="memdesc:a6721d6c2b72fdc1e068b02131ac4fc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy in the string 'count' times the same string.  <a href="#a6721d6c2b72fdc1e068b02131ac4fc52">More...</a><br /></td></tr>
+<tr class="separator:a6721d6c2b72fdc1e068b02131ac4fc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a51bd37a15030de4661659db7d953d6c8"></a>
@@ -339,15 +348,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">int</span> keep = 1, \</div><div class="line">            index= 0;                                                                                         \</div><div class="line">        keep &amp;&amp; index != size;                                                                                \</div><div class="line">        keep = !keep, index++)                                                                                \</div><div class="line">      <span class="keywordflow">for</span>(item = *(array + index); keep; keep = !keep)</div></div><!-- fragment -->
-<p>Can be used like int values[] = { 1, 2, 3 }; <a class="el" href="vstring_8h.html#a2724299ed5373aeda3b37850fd958d9c" title="Can be used like int values[] = { 1, 2, 3 }; foreach(int *v, values) { printf(&quot;value: %d\n&quot;...">foreach(int *v, values)</a> { printf("value: %d\n", *v); }. </p>
+<p>A foreach bucle for arrays. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">item</td><td></td></tr>
-    <tr><td class="paramname">array</td><td></td></tr>
+    <tr><td class="paramname">item</td><td>The variable type of the initializer for bucle </td></tr>
+    <tr><td class="paramname">array</td><td>The array </td></tr>
+    <tr><td class="paramname">size</td><td>The length of the array </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A 'for' loop that traverses all array elements </dd></dl>
 
 </div>
 </div>
@@ -514,14 +524,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a919f1497130045689bdacef5455dd242"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a919f1497130045689bdacef5455dd242">&#9670;&nbsp;</a></span>split_String()</h2>
+<a id="a9ad0ab9e5ba523a300aeb85782e704bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad0ab9e5ba523a300aeb85782e704bb">&#9670;&nbsp;</a></span>str_Length()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t split_String </td>
+          <td class="memname">size_t str_Length </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -567,14 +577,52 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6267c19ae253842dbeeed10b3a846eb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6267c19ae253842dbeeed10b3a846eb2">&#9670;&nbsp;</a></span>substring()</h2>
+<a id="a6721d6c2b72fdc1e068b02131ac4fc52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6721d6c2b72fdc1e068b02131ac4fc52">&#9670;&nbsp;</a></span>str_Repeat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* substring </td>
+          <td class="memname">char* str_Repeat </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy in the string 'count' times the same string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to repeat </td></tr>
+    <tr><td class="paramname">count</td><td>Number of times we want to repeat the string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Another pointer, but this time to the HEAP </dd></dl>
+
+</div>
+</div>
+<a id="aaeca6dd2ae683d17ae11336f83aafeb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeca6dd2ae683d17ae11336f83aafeb1">&#9670;&nbsp;</a></span>str_Substring()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* str_Substring </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>string</em>, </td>
@@ -608,7 +656,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>This function returns char pointers to Heap. That implies the library is responsible to free them. It does whit the function Destroy_pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>This function returns char pointers to Heap. That implies the library is responsible to free them. It does whith the function Destroy_pointer. </dd></dl>
 
 </div>
 </div>
@@ -798,7 +846,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the capacity of the specified object. The capacity is the maximum number of characters a object can hold. Capacity has to be greater than Zero. </p>
+<p>Returns the capacity of the specified object. The capacity is the maximum number of characters that an object can hold. Capacity has to be greater than Zero. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>Object whose capacity is being returned </td></tr>
@@ -835,7 +883,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>To edit the capacity of the vstring object, but only is the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY. </p>
+<p>To edit the capacity of the vstring object, but only if the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>The object to edit </td></tr>
@@ -914,6 +962,81 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>S_OK if the pattern matches, or S_IS_EMPTY if the vstring object is empty or S_ERR_VALUE_NOT_FOUND </dd></dl>
+
+</div>
+</div>
+<a id="abe7db200d83921c63fea3f0df4b4397c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe7db200d83921c63fea3f0df4b4397c">&#9670;&nbsp;</a></span>vstring_Concat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a> vstring_Concat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It concatenates two vstrings objects in the first object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The vstring object we append with the second object </td></tr>
+    <tr><td class="paramname">t</td><td>vstring object to insert in the first object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len of the string to append plus the len of the first data object is greater than CAPACITY </dd></dl>
+
+</div>
+</div>
+<a id="ab56b96ac07a96ec4c9c9b2b16f4a4736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab56b96ac07a96ec4c9c9b2b16f4a4736">&#9670;&nbsp;</a></span>vstring_Count_words()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vstring_Count_words </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Count the number of words in a vstring object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The vstring object </td></tr>
+    <tr><td class="paramname">count</td><td>Variable to return the number of words in the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1165,6 +1288,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a836243d00fae0cf4f26376063a7b494e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a836243d00fae0cf4f26376063a7b494e">&#9670;&nbsp;</a></span>vstring_Inmutable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vstring_Inmutable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the object vstring inmutable, that is, SAFE and capacity == len. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>the object vstring </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acc2e2ec52b881f17f201f5f83cfe50fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc2e2ec52b881f17f201f5f83cfe50fb">&#9670;&nbsp;</a></span>vstring_isEmpty()</h2>
 
@@ -1181,7 +1330,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns True if object is Empty, that is when its length is equal to Zero. </p>
+<p>Returns True if object is Empty, that is, when its length is equal to Zero. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>Pointer to vstring_t type </td></tr>
@@ -1227,96 +1376,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True, if s1 and s2 are equals, otherwise False </dd></dl>
-
-</div>
-</div>
-<a id="af623934e1674da8b37584bf9e77c820c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af623934e1674da8b37584bf9e77c820c">&#9670;&nbsp;</a></span>vstring_Iter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a> vstring_Iter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>item</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Itertools, returns item at position in the vstring object. If index==0, begin; if index==-1, end. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s</td><td>Pointer to vstring_t type variable </td></tr>
-    <tr><td class="paramname">item</td><td>To copy the value found at searched position </td></tr>
-    <tr><td class="paramname">index</td><td>Position to search </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>S_OK if position is correct and data is not empty S_ERR_IS_EMPTY if the vstring object is empty S_ERR_OUT_OF_RANGE if position is not ok </dd></dl>
-
-</div>
-</div>
-<a id="a3bd07b07a80633b96ff00bbbdc6f4311"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bd07b07a80633b96ff00bbbdc6f4311">&#9670;&nbsp;</a></span>vstring_Iter_next()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a> vstring_Iter_next </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>item</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Itertools, returns Item at index+1 in the vstring object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s</td><td>Pointer to vstring_t type variable </td></tr>
-    <tr><td class="paramname">item</td><td>To copy the value found at searched position </td></tr>
-    <tr><td class="paramname">index</td><td>Position to search </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>S_OK if position is correct and data is not empty S_ERR_IS_EMPTY if the vstring object is empty S_ERR_OUT_OF_RANGE if position is not ok </dd></dl>
 
 </div>
 </div>
@@ -1390,7 +1449,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor. The data array is empty. </p>
+<p>Constructor. There is no data in the vstring object. After 'New', you have to use 'From'. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">capacity</td><td>Maximum number of characters in the object </td></tr>
@@ -1524,6 +1583,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>S_OK if position is correct and object is not empty S_ERR_IS_EMPTY if the vstring is empty S_ERR_OUT_OF_RANGE if position is not ok </dd></dl>
+
+</div>
+</div>
+<a id="a31cb3d471a79cc429f23131b91f8cf64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31cb3d471a79cc429f23131b91f8cf64">&#9670;&nbsp;</a></span>vstring_Rep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="vstring_8h.html#a4ef3ea03455dd7630f942d3e1eafb0ba">s_stat</a> vstring_Rep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="vstring_8h.html#ab4035cb5d735a564b6bb984402a9b2a9">vstring_t</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It concatenates the source vstring object n times. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The source vstring object </td></tr>
+    <tr><td class="paramname">num</td><td>Number of times we repeat the vstring object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len of the string to append plus the len of the vstring object is greater than CAPACITY </dd></dl>
 
 </div>
 </div>

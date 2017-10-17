@@ -1,4 +1,4 @@
-.TH "src/vstring.c" 3 "Thu Oct 12 2017" "Version 0.1" "vString" \" -*- nroff -*-
+.TH "src/vstring.c" 3 "Tue Oct 17 2017" "Version 0.1" "vString" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -23,7 +23,7 @@ src/vstring.c
 .ti -1c
 .RI "\fBvstring_t\fP * \fBvstring_New\fP (int capacity)"
 .br
-.RI "Constructor\&. The data array is empty\&. "
+.RI "Constructor\&. There is no data in the vstring object\&. After 'New', you have to use 'From'\&. "
 .ti -1c
 .RI "\fBvstring_t\fP * \fBvstring_with_Capacity\fP (char *str, int capacity)"
 .br
@@ -39,7 +39,15 @@ src/vstring.c
 .ti -1c
 .RI "int \fBvstring_Capacity\fP (const \fBvstring_t\fP *s)"
 .br
-.RI "Returns the capacity of the specified object\&. The capacity is the maximum number of characters a object can hold\&. Capacity has to be greater than Zero\&. "
+.RI "Returns the capacity of the specified object\&. The capacity is the maximum number of characters that an object can hold\&. Capacity has to be greater than Zero\&. "
+.ti -1c
+.RI "void \fBvstring_Count_words\fP (\fBvstring_t\fP *s, int *count)"
+.br
+.RI "Count the number of words in a vstring object\&. "
+.ti -1c
+.RI "const char const  * \fBvstring_Data\fP (const \fBvstring_t\fP *s)"
+.br
+.RI "Method to access the string in the vstring object\&. "
 .ti -1c
 .RI "bool \fBvstring_isEquals\fP (const \fBvstring_t\fP *s1, const \fBvstring_t\fP *s2)"
 .br
@@ -47,7 +55,7 @@ src/vstring.c
 .ti -1c
 .RI "bool \fBvstring_isEmpty\fP (const \fBvstring_t\fP *s)"
 .br
-.RI "Returns True if object is Empty, that is when its length is equal to Zero\&. "
+.RI "Returns True if object is Empty, that is, when its length is equal to Zero\&. "
 .ti -1c
 .RI "int \fBvstring_Len\fP (const \fBvstring_t\fP *s)"
 .br
@@ -73,21 +81,9 @@ src/vstring.c
 .br
 .RI "Item at data's beginning\&. "
 .ti -1c
-.RI "const char const  * \fBvstring_Data\fP (const \fBvstring_t\fP *s)"
-.br
-.RI "Method to access the string in the vstring object\&. "
-.ti -1c
 .RI "\fBs_stat\fP \fBvstring_End\fP (const \fBvstring_t\fP *s, char *item)"
 .br
 .RI "Item at data's ending\&. "
-.ti -1c
-.RI "\fBs_stat\fP \fBvstring_Iter\fP (const \fBvstring_t\fP *s, char *item, int index)"
-.br
-.RI "Itertools, returns item at position in the vstring object\&. If index==0, begin; if index==-1, end\&. "
-.ti -1c
-.RI "\fBs_stat\fP \fBvstring_Iter_next\fP (const \fBvstring_t\fP *s, char *item, int index)"
-.br
-.RI "Itertools, returns Item at index+1 in the vstring object\&. "
 .ti -1c
 .RI "\fBs_stat\fP \fBvstring_Pattern\fP (\fBvstring_t\fP *s, const char *pattern, \fBvstring_t\fP *result)"
 .br
@@ -99,11 +95,19 @@ src/vstring.c
 .ti -1c
 .RI "\fBs_stat\fP \fBvstring_Capacity_edit\fP (\fBvstring_t\fP *s, int capacity)"
 .br
-.RI "To edit the capacity of the vstring object, but only is the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY\&. "
+.RI "To edit the capacity of the vstring object, but only if the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY\&. "
 .ti -1c
 .RI "void \fBvstring_Clear\fP (\fBvstring_t\fP *s)"
 .br
 .RI "Remove the data in the object, but it does not free the object\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Clear_ifPattern\fP (\fBvstring_t\fP *s, const char *pattern)"
+.br
+.RI "Remove the data in the object, if matches the pattern\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Concat\fP (\fBvstring_t\fP *s, \fBvstring_t\fP *t)"
+.br
+.RI "It concatenates two vstrings objects in the first object\&. "
 .ti -1c
 .RI "\fBs_stat\fP \fBvstring_From\fP (\fBvstring_t\fP *s, const char *str)"
 .br
@@ -113,13 +117,17 @@ src/vstring.c
 .br
 .RI "Insert (an item of data) at position of vstring object\&. "
 .ti -1c
-.RI "*brief Returns the strings **param s A pointer to \fBvstring_t\fP objet *param result vstring object pointer to return the result *\fBs_stat\fP \fBvstring_Clear_ifPattern\fP (\fBvstring_t\fP *s, const char *pattern)"
-.br
-.RI "Remove the data in the object, if matches the pattern\&. "
-.ti -1c
 .RI "void \fBvstring_From_file\fP (\fBvstring_t\fP *s, const char *filename)"
 .br
 .RI "We copy a file in a vstring object\&. In this case the object is UNSAFE\&. "
+.ti -1c
+.RI "void \fBvstring_Inmutable\fP (\fBvstring_t\fP *s)"
+.br
+.RI "Set the object vstring inmutable, that is, SAFE and capacity == len\&. "
+.ti -1c
+.RI "\fBs_stat\fP \fBvstring_Rep\fP (\fBvstring_t\fP *s, size_t num)"
+.br
+.RI "It concatenates the source vstring object n times\&. "
 .ti -1c
 .RI "\fBs_stat\fP \fBvstring_Truncate\fP (\fBvstring_t\fP *s, int position)"
 .br
@@ -129,13 +137,17 @@ src/vstring.c
 .br
 .RI "To edit the state of the vstring object\&. By default the data is inmutable, that is, we does not allow modify its capacity\&. "
 .ti -1c
-.RI "size_t \fBsplit_String\fP (char *src, int position, int length, char delimiter)"
+.RI "size_t \fBstr_Length\fP (char *src, int position, int length, char delimiter)"
 .br
 .RI "To calculate the lenght of substring in the buffer, from position, to position of the delimiter\&. "
 .ti -1c
-.RI "char * \fBsubstring\fP (char *string, int position, int length)"
+.RI "char * \fBstr_Substring\fP (char *string, int position, int length)"
 .br
 .RI "To identifie substrings in another string\&. "
+.ti -1c
+.RI "char * \fBstr_Repeat\fP (char *str, size_t count)"
+.br
+.RI "Copy in the string 'count' times the same string\&. "
 .ti -1c
 .RI "void \fBvstring_Abort\fP (\fBs_stat\fP status, const char *file, int line_number)"
 .br
@@ -147,7 +159,7 @@ src/vstring.c
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "size_t split_String (char * src, int position, int length, char delimiter)"
+.SS "size_t str_Length (char * src, int position, int length, char delimiter)"
 
 .PP
 To calculate the lenght of substring in the buffer, from position, to position of the delimiter\&. 
@@ -171,7 +183,25 @@ Two control characters: new line and delimiter\&. If we find '
 .RE
 .PP
 
-.SS "char* substring (char * string, int position, int length)"
+.SS "char* str_Repeat (char * str, size_t count)"
+
+.PP
+Copy in the string 'count' times the same string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstr\fP The string to repeat 
+.br
+\fIcount\fP Number of times we want to repeat the string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Another pointer, but this time to the HEAP 
+.RE
+.PP
+
+.SS "char* str_Substring (char * string, int position, int length)"
 
 .PP
 To identifie substrings in another string\&. 
@@ -187,7 +217,7 @@ To identifie substrings in another string\&.
 .PP
 \fBReturns:\fP
 .RS 4
-This function returns char pointers to Heap\&. That implies the library is responsible to free them\&. It does whit the function Destroy_pointer\&. 
+This function returns char pointers to Heap\&. That implies the library is responsible to free them\&. It does whith the function Destroy_pointer\&. 
 .RE
 .PP
 
@@ -260,7 +290,7 @@ S_OK if data is not empty S_ERR_IS_EMPTY if the vstring object is empty
 .SS "int vstring_Capacity (const \fBvstring_t\fP * s)"
 
 .PP
-Returns the capacity of the specified object\&. The capacity is the maximum number of characters a object can hold\&. Capacity has to be greater than Zero\&. 
+Returns the capacity of the specified object\&. The capacity is the maximum number of characters that an object can hold\&. Capacity has to be greater than Zero\&. 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -276,7 +306,7 @@ The capacity of the object
 .SS "\fBs_stat\fP vstring_Capacity_edit (\fBvstring_t\fP * s, int capacity)"
 
 .PP
-To edit the capacity of the vstring object, but only is the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY\&. 
+To edit the capacity of the vstring object, but only if the object is S_UNSAFE and new capacity is lesser than MAX_CAPACITY\&. 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -302,7 +332,7 @@ Remove the data in the object, but it does not free the object\&.
 .RE
 .PP
 
-.SS "* brief Returns the strings* * param s A pointer to \fBvstring_t\fP objet* param result vstring object pointer to return the result* \fBs_stat\fP vstring_Clear_ifPattern (\fBvstring_t\fP * s, const char * pattern)"
+.SS "\fBs_stat\fP vstring_Clear_ifPattern (\fBvstring_t\fP * s, const char * pattern)"
 
 .PP
 Remove the data in the object, if matches the pattern\&. We use the C's library 'fnmatch' to pattern matching\&. The pattern may include the following special characters:
@@ -325,6 +355,37 @@ Matches zero of more characters\&. ? Matches exactly one character\&.
 \fBReturns:\fP
 .RS 4
 S_OK if the pattern matches, or S_IS_EMPTY if the vstring object is empty or S_ERR_VALUE_NOT_FOUND 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Concat (\fBvstring_t\fP * s, \fBvstring_t\fP * t)"
+
+.PP
+It concatenates two vstrings objects in the first object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The vstring object we append with the second object 
+.br
+\fIt\fP vstring object to insert in the first object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len of the string to append plus the len of the first data object is greater than CAPACITY 
+.RE
+.PP
+
+.SS "void vstring_Count_words (\fBvstring_t\fP * s, int * count)"
+
+.PP
+Count the number of words in a vstring object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The vstring object 
+.br
+\fIcount\fP Variable to return the number of words in the object 
 .RE
 .PP
 
@@ -437,10 +498,21 @@ We copy a file in a vstring object\&. In this case the object is UNSAFE\&.
 .RE
 .PP
 
+.SS "void vstring_Inmutable (\fBvstring_t\fP * s)"
+
+.PP
+Set the object vstring inmutable, that is, SAFE and capacity == len\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP the object vstring 
+.RE
+.PP
+
 .SS "bool vstring_isEmpty (const \fBvstring_t\fP * s)"
 
 .PP
-Returns True if object is Empty, that is when its length is equal to Zero\&. 
+Returns True if object is Empty, that is, when its length is equal to Zero\&. 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -468,46 +540,6 @@ It Compares the size of elements of two vstrings (s1, s2) and if are equals, it 
 \fBReturns:\fP
 .RS 4
 True, if s1 and s2 are equals, otherwise False 
-.RE
-.PP
-
-.SS "\fBs_stat\fP vstring_Iter (const \fBvstring_t\fP * s, char * item, int index)"
-
-.PP
-Itertools, returns item at position in the vstring object\&. If index==0, begin; if index==-1, end\&. 
-.PP
-\fBParameters:\fP
-.RS 4
-\fIs\fP Pointer to vstring_t type variable 
-.br
-\fIitem\fP To copy the value found at searched position 
-.br
-\fIindex\fP Position to search 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-S_OK if position is correct and data is not empty S_ERR_IS_EMPTY if the vstring object is empty S_ERR_OUT_OF_RANGE if position is not ok 
-.RE
-.PP
-
-.SS "\fBs_stat\fP vstring_Iter_next (const \fBvstring_t\fP * s, char * item, int index)"
-
-.PP
-Itertools, returns Item at index+1 in the vstring object\&. 
-.PP
-\fBParameters:\fP
-.RS 4
-\fIs\fP Pointer to vstring_t type variable 
-.br
-\fIitem\fP To copy the value found at searched position 
-.br
-\fIindex\fP Position to search 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-S_OK if position is correct and data is not empty S_ERR_IS_EMPTY if the vstring object is empty S_ERR_OUT_OF_RANGE if position is not ok 
 .RE
 .PP
 
@@ -546,7 +578,7 @@ Capacity bound
 .SS "\fBvstring_t\fP* vstring_New (int capacity)"
 
 .PP
-Constructor\&. The data array is empty\&. 
+Constructor\&. There is no data in the vstring object\&. After 'New', you have to use 'From'\&. 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -619,6 +651,24 @@ Control if supplied position is out of range or object is empty\&.
 \fBReturns:\fP
 .RS 4
 S_OK if position is correct and object is not empty S_ERR_IS_EMPTY if the vstring is empty S_ERR_OUT_OF_RANGE if position is not ok 
+.RE
+.PP
+
+.SS "\fBs_stat\fP vstring_Rep (\fBvstring_t\fP * s, size_t num)"
+
+.PP
+It concatenates the source vstring object n times\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP The source vstring object 
+.br
+\fInum\fP Number of times we repeat the vstring object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len of the string to append plus the len of the vstring object is greater than CAPACITY 
 .RE
 .PP
 

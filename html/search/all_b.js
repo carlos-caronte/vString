@@ -19,7 +19,8 @@ var searchData=
   ['s_5funsafe',['S_UNSAFE',['../vstring_8h.html#a1adf837ad21f5b3149f82c83eb4bc712a8edd8ca4d69b7cf206fb073225eccfd2',1,'vstring.h']]],
   ['safe',['safe',['../structVstring.html#aedf59fe20009bbcfae2c790a720e707b',1,'Vstring']]],
   ['safe_5ft',['safe_t',['../vstring_8h.html#ab3bb0c18da06dcddb4b9760d7b706085',1,'vstring.h']]],
-  ['split_5fstring',['split_String',['../vstring_8c.html#a919f1497130045689bdacef5455dd242',1,'split_String(char *src, int position, int length, char delimiter):&#160;vstring.c'],['../vstring_8h.html#a919f1497130045689bdacef5455dd242',1,'split_String(char *src, int position, int length, char delimiter):&#160;vstring.c']]],
   ['start_5ftest',['START_TEST',['../check__vstring_8c.html#ae1fe05ca0bf1415d7625f1492ecfd6c3',1,'check_vstring.c']]],
-  ['substring',['substring',['../vstring_8c.html#a6267c19ae253842dbeeed10b3a846eb2',1,'substring(char *string, int position, int length):&#160;vstring.c'],['../vstring_8h.html#a6267c19ae253842dbeeed10b3a846eb2',1,'substring(char *string, int position, int length):&#160;vstring.c']]]
+  ['str_5flength',['str_Length',['../vstring_8c.html#a9ad0ab9e5ba523a300aeb85782e704bb',1,'str_Length(char *src, int position, int length, char delimiter):&#160;vstring.c'],['../vstring_8h.html#a9ad0ab9e5ba523a300aeb85782e704bb',1,'str_Length(char *src, int position, int length, char delimiter):&#160;vstring.c']]],
+  ['str_5frepeat',['str_Repeat',['../vstring_8c.html#a6721d6c2b72fdc1e068b02131ac4fc52',1,'str_Repeat(char *str, size_t count):&#160;vstring.c'],['../vstring_8h.html#a6721d6c2b72fdc1e068b02131ac4fc52',1,'str_Repeat(char *str, size_t count):&#160;vstring.c']]],
+  ['str_5fsubstring',['str_Substring',['../vstring_8c.html#aaeca6dd2ae683d17ae11336f83aafeb1',1,'str_Substring(char *string, int position, int length):&#160;vstring.c'],['../vstring_8h.html#aaeca6dd2ae683d17ae11336f83aafeb1',1,'str_Substring(char *string, int position, int length):&#160;vstring.c']]]
 ];

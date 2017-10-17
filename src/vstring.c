@@ -37,12 +37,12 @@
  * *************************************************************/
 
 /**
- * @brief                       Constructor. There is no data in the vstring
- *                                  object. After 'New', you have to use 'From'
+ * @brief               Constructor. There is no data in the vstring
+ *                      object. After 'New', you have to use 'From'
  * @param capacity      Maximum number of characters in the object
- * @returns                   Returns a vstring object with its features
- *                                  by default. All the objects are safes: their capacity
- *                                  is inmutable
+ * @returns             Returns a vstring object with its features
+ *                      by default. All the objects are safes: their capacity
+ *                      is inmutable
  *
  */
 vstring_t * vstring_New(int capacity) {
@@ -74,12 +74,12 @@ vstring_t * vstring_New(int capacity) {
 
 
 /**
- * @brief                       Constructor. We append the data array with 'str'
- * @param str               String to append the data in the vstring object
+ * @brief               Constructor. We append the data array with 'str'
+ * @param str           String to append the data in the vstring object
  * @param capacity      Maximum number of characters in the object
- * @returns                   Returns a vstring object with its features
- *                                  by default. All the objects are safes: their capacity
- *                                  is inmutable
+ * @returns             Returns a vstring object with its features
+ *                      by default. All the objects are safes: their capacity
+ *                      is inmutable
  */
 vstring_t * vstring_with_Capacity(char * str, int capacity) {
 
@@ -107,7 +107,7 @@ vstring_t * vstring_with_Capacity(char * str, int capacity) {
 
 
 /**
- * @brief           Destructor
+ * @brief        Destructor
  * @param s      The vstring object to free
  *
  *
@@ -119,8 +119,8 @@ void vstring_Destroy(vstring_t *s) {
 
 
 /**
- * @brief                Array destructor.
- * @param s          The pointer array to free
+ * @brief           Array destructor.
+ * @param s         The pointer array to free
  * @param len       The number of vstring objects in the array
  *
  */
@@ -140,13 +140,13 @@ void vstring_Destroy_Array(array_vstring_t s, int len) {
  * *************************************************************/
 
 /**
- * @brief           Returns the capacity of the specified object. The capacity
- *                      is the maximum number of characters that an object
- *                      can hold.
- *                      Capacity has to be greater than Zero
+ * @brief       Returns the capacity of the specified object. The capacity
+ *              is the maximum number of characters that an object
+ *              can hold.
+ *              Capacity has to be greater than Zero
  *
  * @param s     Object whose capacity is being returned
- * @returns       The capacity of the object
+ * @returns     The capacity of the object
  *
  */
 int vstring_Capacity(const vstring_t *s)
@@ -156,8 +156,8 @@ int vstring_Capacity(const vstring_t *s)
 
 
 /**
- * @brief                   Count the number of words in a vstring object
- * @param s             The vstring object
+ * @brief            Count the number of words in a vstring object
+ * @param s          The vstring object
  * @param count      Variable to return the number of words in the object
  *
  */
@@ -179,9 +179,9 @@ void vstring_Count_words(vstring_t *s, int *count) {
 
 
 /**
- * @brief          Method to access the  string in the vstring object
+ * @brief       Method to access the  string in the vstring object
  * @param s     the object
- * @returns      the string wrapped for the object
+ * @returns     the string wrapped for the object
  *
  *
  */
@@ -191,12 +191,12 @@ const char const *vstring_Data(const vstring_t *s) {
 
 
 /**
- * @brief           It Compares the size of elements of two vstrings
- *                      (s1, s2) and if are equals, it compares the first n bytes
- *                      of memory area of s1->data and s2->data
+ * @brief       It Compares the size of elements of two vstrings
+ *              (s1, s2) and if are equals, it compares the first n bytes
+ *              of memory area of s1->data and s2->data
  * @param s1    A vstring object
  * @param s2    A vstring object
- * @returns       True, if s1 and s2 are equals, otherwise False
+ * @returns     True, if s1 and s2 are equals, otherwise False
  *
  *
  */
@@ -209,10 +209,10 @@ bool vstring_isEquals(const vstring_t *s1, const vstring_t *s2) {
 
 
 /**
- * @brief           Returns True if object is Empty, that is, when its length
- *                      is equal to Zero
+ * @brief       Returns True if object is Empty, that is, when its length
+ *              is equal to Zero
  * @param s     Pointer to vstring_t type
- * @returns       Bool
+ * @returns     Bool
  *
  */
 bool vstring_isEmpty(const vstring_t  *s) {
@@ -221,11 +221,11 @@ bool vstring_isEmpty(const vstring_t  *s) {
 
 
 /**
- * @brief               Control pointers to stack
- * @param s         The vstring_t type object
+ * @brief         Control pointers to stack
+ * @param s       The vstring_t type object
  * @param item    The pointer.
- * @returns           True if the pointer points to HEAP. Otherwise returns
- *                          False
+ * @returns       True if the pointer points to HEAP. Otherwise returns
+ *                False
  *
  */
 static bool vstring_Heap(const vstring_t *s, void *item) {
@@ -250,10 +250,10 @@ static bool vstring_Heap(const vstring_t *s, void *item) {
 
 
 /**
- * @brief           Returns the number of characters in the data object,
- *                      the object's length
+ * @brief       Returns the number of characters in the data object,
+ *              the object's length
  * @param s     Pointer to vstring_t type
- * @returns       s->len, the number of characters in the data object
+ * @returns     s->len, the number of characters in the data object
  *
  */
 int vstring_Len(const vstring_t *s) {
@@ -263,13 +263,13 @@ int vstring_Len(const vstring_t *s) {
 
 
 /**
- * @brief                    Control if supplied position is out of range or object
- *                               is empty.
- * @param s              Pointer to vstring_t type variable
+ * @brief             Control if supplied position is out of range or object
+ *                    is empty.
+ * @param s           Pointer to vstring_t type variable
  * @param position    Position to calculate
- * @returns                S_OK if position is correct and object is not empty
- *                               S_ERR_IS_EMPTY if the vstring is empty
- *                               S_ERR_OUT_OF_RANGE if position is not ok
+ * @returns             S_OK if position is correct and object is not empty
+ *                      S_ERR_IS_EMPTY if the vstring is empty
+ *                      S_ERR_OUT_OF_RANGE if position is not ok
 */
 s_stat vstring_Pos_Err(const vstring_t *s, int position) {
     if (vstring_isEmpty(s))
@@ -296,10 +296,10 @@ s_stat vstring_Pos_Err(const vstring_t *s, int position) {
 
 
 /**
- * @brief           Capacity bound. A proportional number over sizeof
- *                      integer
+ * @brief        Capacity bound. A proportional number over sizeof
+ *               integer
  * @param s      the object
- * @returns       Capacity bound
+ * @returns      Capacity bound
  *
  */
 int vstring_Max_capacity(const vstring_t *s) {
@@ -317,10 +317,10 @@ int vstring_Max_capacity(const vstring_t *s) {
 
 
 /**
- * @brief               Print an array of vstring objects
- * @param s         A pointer to vstring_t object
+ * @brief         Print an array of vstring objects
+ * @param s       A pointer to vstring_t object
  * @param array   An array of vstring objects
- * @param size     The number of vstrings objects in array
+ * @param size    The number of vstrings objects in array
  *
  *
  */
@@ -336,13 +336,13 @@ void vstring_Array_print(vstring_t *s, const array_vstring_t array,
 
 
 /**
- * @brief                   Character at position in the vstring object.
- * @param s             Pointer to vstring_t type variable
- * @param item        To copy the value found at searched position
+ * @brief            Character at position in the vstring object.
+ * @param s          Pointer to vstring_t type variable
+ * @param item       To copy the value found at searched position
  * @param position   Position to search
- * @returns                S_OK if position is correct and data is not empty
- *                               S_ERR_IS_EMPTY if the data is empty
- *                               S_ERR_OUT_OF_RANGE if position is not ok
+ * @returns             S_OK if position is correct and data is not empty
+ *                      S_ERR_IS_EMPTY if the data is empty
+ *                      S_ERR_OUT_OF_RANGE if position is not ok
  *
  */
 s_stat vstring_At(const vstring_t *s, char *item, int position) {
@@ -362,11 +362,11 @@ s_stat vstring_At(const vstring_t *s, char *item, int position) {
 
 
 /**
- * @brief                   Item at data's beginning.
- * @param s             Pointer to vstring_t type variable
+ * @brief             Item at data's beginning.
+ * @param s           Pointer to vstring_t type variable
  * @param item        To copy the value found at searched position
  * @returns               S_OK if data is not empty
- *                              S_ERR_IS_EMPTY if the vstring object is empty
+ *                        S_ERR_IS_EMPTY if the vstring object is empty
  *
  */
 s_stat vstring_Begin(const vstring_t *s, char *item) {
@@ -375,11 +375,11 @@ s_stat vstring_Begin(const vstring_t *s, char *item) {
 
 
 /**
- * @brief                   Item at data's ending.
+ * @brief               Item at data's ending.
  * @param s             Pointer to vstring_t type variable
- * @param item        To copy the value found at searched position
+ * @param item          To copy the value found at searched position
  * @returns               S_OK if data is not empty
- *                              S_ERR_IS_EMPTY if the vstring object is empty
+ *                        S_ERR_IS_EMPTY if the vstring object is empty
  *
  */
 s_stat vstring_End(const vstring_t *s, char *item) {
@@ -389,16 +389,16 @@ s_stat vstring_End(const vstring_t *s, char *item) {
 
 /**
  * @brief          Returns the strings that matches the pattern in one
- *                     vstring object.
- *                     In this case, the search is, at least, Big-O lineal time of
- *                     complexity.
- *                     We use the C's library 'fnmatch' to pattern matching.
- *                     The pattern may include the following special characters:
+ *                 vstring object.
+ *                 In this case, the search is, at least, Big-O lineal time of
+ *                 complexity.
+ *                 We use the C's library 'fnmatch' to pattern matching.
+ *                 The pattern may include the following special characters:
  *
- *                    *  Matches zero of more characters.
- *                    ?  Matches exactly one character.
+ *                    *   Matches zero of more characters.
+ *                    ?   Matches exactly one character.
 
- *                [...]  Matches one character if it's in a range of characters.
+ *                [...]   Matches one character if it's in a range of characters.
  *                        If the first character is `!', matches if the character is
  *                        not in the range. Between the brackets, the range is
  *                        specified by listing the characters that are in the range,
@@ -409,15 +409,15 @@ s_stat vstring_End(const vstring_t *s, char *item) {
  *                        it the first character, like in `[-afz]'.
 
  *                    \   Causes the next character to not be treated as a
- *                         wildcard. For example, `\*' matches an asterisk.
+ *                        wildcard. For example, `\*' matches an asterisk.
  *
- * @param s              A pointer to vstring_t objet
+ * @param s          A pointer to vstring_t objet
  * @param pattern    Pattern searched. It is a string.
- * @param result       vstring object pointer to return the result
- * @returns               S_OK if the element was found, or
- *                              S_IS_EMPTY if the vstring object is empty or
- *                              S_ERR_VALUE_NOT_FOUND
- *                              S_ERR_INVALID ARGUMENT
+ * @param result     vstring object pointer to return the result
+ * @returns              S_OK if the element was found, or
+ *                       S_IS_EMPTY if the vstring object is empty or
+ *                       S_ERR_VALUE_NOT_FOUND
+ *                       S_ERR_INVALID ARGUMENT
  */
 s_stat vstring_Pattern(vstring_t *s, const char *pattern,
                                     vstring_t *result) {
@@ -459,12 +459,12 @@ s_stat vstring_Pattern(vstring_t *s, const char *pattern,
 
 
 /**
- * @brief           Split in words the vstring data object. The delimiter is
- *                      SPACE.
+ * @brief        Split in words the vstring data object. The delimiter is
+ *               SPACE.
  * @param s      A pointer to vstring object
- * @param len   To copy the number of vstrings in the array
- *                       that is returns
- * @returns        An array of vstring objects
+ * @param len    To copy the number of vstrings in the array
+ *               that is returns
+ * @returns      An array of vstring objects
  *
  */
 array_vstring_t  vstring_Split(vstring_t *s, int * len) {
@@ -564,10 +564,10 @@ array_vstring_t  vstring_Split(vstring_t *s, int * len) {
  * *************************************************************/
 
 /**
- * @brief                   To edit the capacity of the vstring object, but only if
- *                              the object is S_UNSAFE and new capacity is lesser
- *                              than MAX_CAPACITY
- * @param s              The object to edit
+ * @brief            To edit the capacity of the vstring object, but only if
+ *                   the object is S_UNSAFE and new capacity is lesser
+ *                   than MAX_CAPACITY
+ * @param s          The object to edit
  * @param capacity   The new capacity
  * @returns                S_OK or S_ERR_UNSAFE_CAPACITY
  *
@@ -594,8 +594,8 @@ s_stat vstring_Capacity_edit(vstring_t *s, int capacity) {
 }
 
 /**
- * @brief           Remove the data in the object, but it does not free
- *                      the object
+ * @brief       Remove the data in the object, but it does not free
+ *              the object
  * @param s     It is the object whose data we have to remove
  *
  */
@@ -606,7 +606,7 @@ void vstring_Clear(vstring_t *s) {
 
 
 /**
- * @brief           Remove the data in the object, if matches the pattern.
+ * @brief              Remove the data in the object, if matches the pattern.
  *
  *                     We use the C's library 'fnmatch' to pattern matching.
  *                     The pattern may include the following special characters:
@@ -627,12 +627,12 @@ void vstring_Clear(vstring_t *s) {
  *                    \   Causes the next character to not be treated as a
  *                         wildcard. For example, `\*' matches an asterisk.
 
- * @param s     It is the object whose data we have to remove. We do not
- *                      free the object.
- * @param pattern    Pattern searched. It is a string.
+ * @param s             It is the object whose data we have to remove.
+ *                      We do not free the object.
+ * @param pattern       Pattern searched. It is a string.
  * @returns               S_OK if the pattern matches, or
- *                              S_IS_EMPTY if the vstring object is empty or
- *                              S_ERR_VALUE_NOT_FOUND
+ *                        S_IS_EMPTY if the vstring object is empty or
+ *                        S_ERR_VALUE_NOT_FOUND
  *
  */
 s_stat vstring_Clear_ifPattern(vstring_t *s, const char *pattern) {
@@ -677,12 +677,12 @@ s_stat vstring_Clear_ifPattern(vstring_t *s, const char *pattern) {
 
 
 /**
- * @brief           It concatenates two vstrings objects in the first object
+ * @brief       It concatenates two vstrings objects in the first object
  * @param s     The vstring object we append with the second object
- * @param t      vstring object to insert in the first object
+ * @param t     vstring object to insert in the first object
  * @returns       S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len
- *                      of the string to append plus the len of the first data
- *                      object is greater than CAPACITY
+ *                of the string to append plus the len of the first data
+ *                object is greater than CAPACITY
  *
  */
 s_stat vstring_Concat(vstring_t *s, vstring_t *t) {
@@ -692,12 +692,12 @@ s_stat vstring_Concat(vstring_t *s, vstring_t *t) {
 
 
 /**
- * @brief               Insert (an item of data) at the end of vstring object.
- * @param s         Pointer to vstring_t type variable
+ * @brief         Insert (an item of data) at the end of vstring object.
+ * @param s       Pointer to vstring_t type variable
  * @param item    Value to insert in vstring object
  * @returns           S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len
- *                          of the string to append plus the len of the data object
- *                          is greater than CAPACITY
+ *                    of the string to append plus the len of the data object
+ *                    is greater than CAPACITY
  */
 s_stat vstring_From(vstring_t *s, const char *str) {
 
@@ -726,15 +726,15 @@ s_stat vstring_From(vstring_t *s, const char *str) {
 
 
 /**
- * @brief                   Insert (an item of data) at position of vstring object.
- * @param s             Pointer to vstring_t type variable
- * @param str           The string to insert
+ * @brief            Insert (an item of data) at position of vstring object.
+ * @param s          Pointer to vstring_t type variable
+ * @param str        The string to insert
  * @param position   Position at we insert the string. Position is Zero
- *                              index
- * @returns               We control the position. The function returns S_OK
- *                              or an error:
- *                              S_ERR_IS_EMPTY
- *                              S_ERR_OUT_OF_RANGE
+ *                   index
+ * @returns          We control the position. The function returns S_OK
+ *                   or an error:
+ *                      S_ERR_IS_EMPTY
+ *                      S_ERR_OUT_OF_RANGE
  *
  */
 s_stat vstring_From_at(vstring_t *s, const char *str, int position)
@@ -783,9 +783,9 @@ s_stat vstring_From_at(vstring_t *s, const char *str, int position)
 
 
 /**
- * @brief                       We copy a file in a vstring object. In this case the
- *                                  object is UNSAFE
- * @param s                 The vstring object
+ * @brief               We copy a file in a vstring object. In this case the
+ *                      object is UNSAFE
+ * @param s             The vstring object
  * @param filename      One string with the path and the number of the
  *                                  file.
  */
@@ -810,8 +810,8 @@ void vstring_From_file(vstring_t *s, const char *filename)
 
 
 /**
- * @brief               Set the object vstring inmutable, that is, SAFE and
- *                          capacity == len
+ * @brief           Set the object vstring inmutable, that is, SAFE and
+ *                  capacity == len
  * @param s         the object vstring
  *
  *
@@ -823,12 +823,12 @@ void vstring_Inmutable(vstring_t *s) {
 
 
 /**
- * @brief           It concatenates the source vstring object n times
+ * @brief       It concatenates the source vstring object n times
  * @param s     The source vstring object
- * @param num Number of times we repeat the vstring object
+ * @param num   Number of times we repeat the vstring object
  * @returns       S_OK, or an error S_ERR_UNSAFE_CAPACITY, if the len
- *                      of the string to append plus the len of the vstring
- *                      object is greater than CAPACITY
+ *                of the string to append plus the len of the vstring
+ *                object is greater than CAPACITY
  */
 s_stat vstring_Rep(vstring_t *s,  size_t num) {
 
@@ -851,13 +851,13 @@ s_stat vstring_Rep(vstring_t *s,  size_t num) {
 
 
 /**
- * @brief                   It truncates the data object at position
- * @param s             The data object
- * @param position   The position at we truncate the string
- * @returns               We control the position. The function returns S_OK
- *                              or an error:
- *                                  S_ERR_IS_EMPTY
- *                                  S_ERR_OUT_OF_RANGE
+ * @brief           It truncates the data object at position
+ * @param s         The data object
+ * @param position  The position at we truncate the string
+ * @returns         We control the position. The function returns S_OK
+ *                  or an error:
+ *                      S_ERR_IS_EMPTY
+ *                      S_ERR_OUT_OF_RANGE
  */
 s_stat vstring_Truncate(vstring_t *s, int position) {
 
@@ -876,9 +876,9 @@ s_stat vstring_Truncate(vstring_t *s, int position) {
 
 
 /**
- * @brief           To edit the state of the vstring object. By default the data
- *                      is inmutable, that is, we does not allow modify its
- *                      capacity
+ * @brief       To edit the state of the vstring object. By default the data
+ *              is inmutable, that is, we does not allow modify its
+ *              capacity
  * @param s     The object that we edit its state
  *
  *
@@ -896,16 +896,16 @@ void vstring_Unsafe(vstring_t *s) {
 
 
 /**
- * @brief                   To calculate the lenght of substring in the buffer,
- *                              from position, to position of the delimiter.
- * @param src           The buffer with the information
- * @param position    Position from that we search the delimiter
- * @param length      Length of the buffer
- * @param delimiter  Delimiter character
- * @returns               Two control characters: new line and delimiter. If
- *                              we find '\n', it returns Zero. If we find 'delimiter
- *                              char' it returns (index - position). Otherwise returns
- *                              length Zero of substring.
+ * @brief           To calculate the lenght of substring in the buffer,
+ *                  from position, to position of the delimiter.
+ * @param src       The buffer with the information
+ * @param position  Position from that we search the delimiter
+ * @param length    Length of the buffer
+ * @param delimiter Delimiter character
+ * @returns         Two control characters: new line and delimiter. If
+ *                  we find '\n', it returns Zero. If we find 'delimiter
+ *                  char' it returns (index - position). Otherwise returns
+ *                  length Zero of substring.
  *
  *
  */
@@ -926,14 +926,14 @@ size_t  str_Length( char* src, int position, int length,
 
 
 /**
- * @brief                  To identifie substrings in another string.
- * @param string     The buffer to divide from position to (position +
- *                             length)
+ * @brief           To identifie substrings in another string.
+ * @param string    The buffer to divide from position to (position +
+ *                  length)
  * @param position  Substring from position.
  * @param length    Length of desired substring.
- * @returns              This function returns char pointers to Heap. That
- *                             implies the library is responsible to free them.
- *                             It does whith the function Destroy_pointer.
+ * @returns         This function returns char pointers to Heap. That
+ *                  implies the library is responsible to free them.
+ *                  It does whith the function Destroy_pointer.
  *
  *
  */
@@ -958,6 +958,14 @@ char *str_Substring(char *string, int position, int length) {
 }
 
 
+/**
+ * @brief           Copy in the string 'count' times the same string
+ * @param str       The string to repeat
+ * @param count     Number of times we want to repeat the string
+ * @returns         Another pointer, but this time to the HEAP
+ *
+ *
+ */
 char *str_Repeat (char *str, size_t count) {
 
     char *ret = malloc (strlen (str) * count + count);
@@ -974,8 +982,8 @@ char *str_Repeat (char *str, size_t count) {
 
 
 /**
- * @brief                           This function catcher errors that the macro
- *                                      s_assert throws
+ * @brief               This function catcher errors that the macro
+ *                      s_assert throws
  * @param file
  * @param line_number
  *
@@ -1043,10 +1051,10 @@ void vstring_Abort(s_stat status, const char* file, int line_number) {
 }
 
 /**
- * @brief                    It calculates new position if it is a negative number
- * @param s              Pointer to vstring_t type variable
- * @param position    Position to calculate
- * @returns                New position, if it is a negative number
+ * @brief           It calculates new position if it is a negative number
+ * @param s         Pointer to vstring_t type variable
+ * @param position  Position to calculate
+ * @returns         New position, if it is a negative number
  *
  */
 int vstring_Pos(const vstring_t *s, int position) {
